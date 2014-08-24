@@ -1,0 +1,18 @@
+[color]
+    ui = auto
+[user]
+	name = Adrian Göransson
+    # Set email per project
+[core]
+[alias]
+    ci = commit
+    new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+    dfst=diff --stat -r
+    ch = checkout
+    pl = pull
+    ph = push
+    st = status
+    df = diff
+    l = log --date=local
+    del = branch -d
+    fdel = branch -D
