@@ -1,0 +1,19 @@
+{
+	"installed_packages":
+	[
+		"Anaconda",
+		"Better CoffeeScript",
+		"BracketHighlighter",
+		"Emmet",
+		"File Navigator",
+		"GitGutter",
+		"Jinja2",
+		"Pretty JSON",
+		"SCSS",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-coffeelint",
+		"Theme - Nexus",
+		"Theme - Spacegray"
+	]
+}
