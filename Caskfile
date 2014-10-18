@@ -1,3 +1,14 @@
 install caskroom/cask/brew-cask
 
-# install <program>
+install firefox
+install dropbox
+install google-drive
+install fantastical
+install alfred
+install flux
+install sublime-text
+install mplayerx
+install steam
+install skype
+install spotify
+install google-chrome
