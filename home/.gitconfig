@@ -5,7 +5,7 @@
     # Set email per project
 [core]
 [alias]
-    ci = commit
+    ci = commit -v
     new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
     dfst=diff --stat -r
     ch = checkout
