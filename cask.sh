@@ -1,4 +1,4 @@
-APPS="iterm2 firefox-beta dropbox google-drive fantastical alfred flux sublime-text3 mplayerx steam skype spotify google-chrome"
+APPS="iterm2 firefox-beta dropbox google-drive fantastical alfred flux sublime-text3 mplayerx steam skype spotify chromium"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
