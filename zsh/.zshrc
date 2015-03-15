@@ -1,10 +1,11 @@
 # Source Prezto by Sorin Ionescu <sorin.ionescu@gmail.com>
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-PATH=$PATH:~/bin
+LOCALRC="$HOME/.zshlocalrc"
+
+export PATH=$PATH:~/bin
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -18,3 +19,7 @@ alias ls='ls -G'
 alias jobs='jobs -d'
 
 alias vp='vimpager'
+
+if [[ -f $LOCALRC ]]; then
+    source $LOCALRC
+fi
