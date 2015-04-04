@@ -23,3 +23,6 @@ alias vp='vimpager'
 if [[ -f $LOCALRC ]]; then
     source $LOCALRC
 fi
+
+# Remove duplicates from $path (array that is synced with $PATH)
+typeset -U path
