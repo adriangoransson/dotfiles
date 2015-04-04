@@ -7,10 +7,14 @@
 [alias]
     ci = commit -v
     new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-    dfst=diff --stat -r
+    dfst = diff --stat -r
     ch = checkout
     pl = pull
     ph = push
+    f = fetch --tags
+    fa = fetch --all --tags
+    r = reset
+    rh = reset --hard
     st = status
     df = diff
     l = log --date=local
