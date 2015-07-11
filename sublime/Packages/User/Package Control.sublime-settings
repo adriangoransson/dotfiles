@@ -2,10 +2,13 @@
 	"installed_packages":
 	[
 		"Anaconda",
+		"Babel",
 		"Better CoffeeScript",
 		"BracketHighlighter",
+		"EditorConfig",
 		"File Navigator",
 		"Jinja2",
+		"Package Control",
 		"Pretty JSON",
 		"SCSS",
 		"SublimeLinter",
