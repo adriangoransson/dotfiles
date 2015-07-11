@@ -1,0 +1,8 @@
+{
+	"extensions":
+	[
+		"jsx",
+		"js"
+	],
+    "tab_size": 2
+}
