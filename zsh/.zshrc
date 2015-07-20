@@ -24,5 +24,8 @@ if [[ -f $LOCALRC ]]; then
     source $LOCALRC
 fi
 
+# Don't push lines that begin with space onto the history
+setopt hist_ignore_space
+
 # Remove duplicates from $path (array that is synced with $PATH)
 typeset -U path
