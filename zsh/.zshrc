@@ -3,6 +3,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+PROMPT='%F{magenta}[%m]%f %F{yellow}%2~%f${vcs_info_msg_0_} » '
+
 LOCALRC="$HOME/.zshlocalrc"
 
 export PATH=$PATH:~/bin
