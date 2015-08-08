@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # vim: set ft=sh
 
 # Favorites taken from https://raw.githubusercontent.com/mathiasbynens/dotfiles/master/.osx
