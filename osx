@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # vim: set ft=sh
 
+if [[ `uname` != 'Darwin' ]]; then
+    echo "OSX only"
+    exit 1
+fi
+
 # Favorites taken from https://raw.githubusercontent.com/mathiasbynens/dotfiles/master/.osx
 
 # Disable Resume system-wide

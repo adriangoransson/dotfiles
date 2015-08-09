@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 if [[ `uname` != 'Darwin' ]]; then
     echo "OSX only"

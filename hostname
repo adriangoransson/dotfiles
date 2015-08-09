@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ `uname` == "Darwin" ]]; then
+    COMMAND="sudo scutil --set HostName $1 && sudo scutil --set ComputerName $1 && sudo scutil --set LocalHostName $1"
+else
+    COMMAND="sudo hostname $1"
+fi
+
+echo $COMMAND
+eval $COMMAND
