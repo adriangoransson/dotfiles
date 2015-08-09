@@ -1,4 +1,5 @@
 {
+	"bold_folder_labels": true,
 	"font_face": "dejavu sans mono",
 	"color_scheme": "Packages/User/Nexus (SL).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
