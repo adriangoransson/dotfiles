@@ -1,13 +1,13 @@
 #!/bin/zsh
 
-dotfiles=$(dirname $0:A)
+DOTFILES=$(dirname $0:A)
 
 setopt EXTENDED_GLOB
 
-for i in $dotfiles/^install.sh(.N); do
+for i in $DOTFILES/^install.sh(.N); do
 	ln -s $i $HOME/$(basename $i)
 done
 
-for i in $dotfiles/.*; do
+for i in $DOTFILES/.*; do
 	ln -s $i $HOME/$(basename $i)
 done
