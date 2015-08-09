@@ -17,8 +17,12 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export EDITOR='vim'
 export VISUAL='vim'
 
-alias ls='ls -G'
-alias jobs='jobs -d'
+if [[ `uname` == 'Darwin' ]]; then
+    alias ls='ls -G'
+    alias jobs='jobs -d'
+else
+    alias ls='ls --color'
+fi
 
 alias vp='vimpager'
 
