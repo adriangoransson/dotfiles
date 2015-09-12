@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # vim: set ft=sh
 
-if [[ `uname` != 'Darwin' ]]; then
+if [[ $(uname) != 'Darwin' ]]; then
     echo "OSX only"
     exit 1
 fi
@@ -15,5 +15,5 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 for APP in $APPS; do
-    brew cask install $APP
+    brew cask install "$APP"
 done

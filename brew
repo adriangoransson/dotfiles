@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # vim: set ft=sh
 
-if [[ `uname` != 'Darwin' ]]; then
+if [[ $(uname) != 'Darwin' ]]; then
     echo "OSX only"
     exit 1
 fi
@@ -15,13 +15,13 @@ if [[ $INSTALLED -eq 0 ]]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-PROGRAMS="git zsh curl htop-osx httpie jq nmap node pv python python3 ssh-copy-id the_silver_searcher tig vimpager wget"
+PROGRAMS="git zsh curl htop-osx httpie jq nmap node pv python python3 ssh-copy-id the_silver_searcher tig vimpager wget shellcheck"
 
 brew update
 brew upgrade
 
 for PROGRAM in $PROGRAMS; do
-    brew install $PROGRAM
+    brew install "$PROGRAM"
 done
 
 brew cleanup

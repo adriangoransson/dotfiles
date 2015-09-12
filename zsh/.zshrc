@@ -17,7 +17,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export EDITOR='vim'
 export VISUAL='vim'
 
-if [[ `uname` == 'Darwin' ]]; then
+if [[ $(uname) == 'Darwin' ]]; then
     alias ls='ls -G'
     alias jobs='jobs -d'
 else
@@ -26,8 +26,8 @@ fi
 
 alias vp='vimpager'
 
-if [[ -f $LOCALRC ]]; then
-    source $LOCALRC
+if [[ -f "$LOCALRC" ]]; then
+    source "$LOCALRC"
 fi
 
 # Don't push lines that begin with space onto the history
