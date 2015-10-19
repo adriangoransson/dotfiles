@@ -1,8 +1,8 @@
 {
 	"bold_folder_labels": true,
-	"font_face": "dejavu sans mono",
-	"color_scheme": "Packages/User/Nexus (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Nexus (SL).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"font_face": "dejavu sans mono",
 	"highlight_line": true,
 	"ignored_packages":
 	[
