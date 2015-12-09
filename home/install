@@ -4,7 +4,7 @@ DOTFILES=$(dirname "$0:A")
 
 setopt EXTENDED_GLOB
 
-for i in $DOTFILES/^install.sh(.N); do
+for i in $DOTFILES/^install(.N); do
 	ln -s "$i" "$HOME/$(basename "$i")"
 done
 
