@@ -35,3 +35,5 @@ setopt hist_ignore_space
 
 # Remove duplicates from $path (array that is synced with $PATH)
 typeset -U path
+
+bindkey -M vicmd 'K' run-help
