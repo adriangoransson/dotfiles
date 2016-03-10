@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<root>
+
+    <item>
+        <name>Command and F9,F10 for Volume Controls</name>
+        <appendix>CMD + F9 for Volume Down</appendix>
+        <appendix>CMD + F10 for Volume Up</appendix>
+        <identifier>private.remap.fkeys_to_consumer_f10</identifier>
+        <autogen>__KeyToKey__ KeyCode::F9, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, ConsumerKeyCode::VOLUME_DOWN</autogen>
+        <autogen>__KeyToKey__ KeyCode::F10, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, ConsumerKeyCode::VOLUME_UP</autogen>
+    </item>
+
+    <item>
+        <name>F13,F14,F15 for Music Controls</name>
+        <appendix>F13 for Play/Pause</appendix>
+        <appendix>F14 for Previous</appendix>
+        <appendix>F15 for Next</appendix>
+        <identifier>private.remap.fkeys_to_consumer_f13</identifier>
+        <autogen>__KeyToKey__ KeyCode::F13, ConsumerKeyCode::MUSIC_PLAY</autogen>
+        <autogen>__KeyToKey__ KeyCode::F14, ConsumerKeyCode::MUSIC_PREV</autogen>
+        <autogen>__KeyToKey__ KeyCode::F15, ConsumerKeyCode::MUSIC_NEXT</autogen>
+    </item>
+
+</root>

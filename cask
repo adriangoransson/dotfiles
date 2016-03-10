@@ -6,7 +6,7 @@ if [[ $(uname) != 'Darwin' ]]; then
     exit 1
 fi
 
-APPS="iterm2-beta firefoxdeveloperedition dropbox google-drive fantastical alfred flux sublime-text3 steam skype spotify chromium smoothmouse"
+APPS="iterm2-beta firefoxdeveloperedition dropbox google-drive fantastical alfred flux sublime-text3 steam skype spotify chromium smoothmouse karabiner"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
