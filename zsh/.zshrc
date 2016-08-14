@@ -12,8 +12,6 @@ export PATH=$PATH:~/bin
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
 export EDITOR='vim'
 export VISUAL='vim'
 

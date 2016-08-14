@@ -6,14 +6,23 @@ if [[ $(uname) != 'Darwin' ]]; then
     exit 1
 fi
 
-APPS="iterm2-beta firefoxdeveloperedition dropbox google-drive fantastical alfred flux sublime-text3 steam skype spotify chromium smoothmouse karabiner"
+APPS="iterm2-beta \
+    firefoxdeveloperedition \
+    dropbox \
+    google-drive \
+    keepassx \
+    itsycal \
+    alfred \
+    flux \
+    sublime-text-dev \
+    steam \
+    skype \
+    spotify \
+    chromium \
+    karabiner \
+    smoothmouse"
 
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-brew install caskroom/cask/brew-cask
-
+brew tap caskroom/cask
 brew tap caskroom/versions
 
-for APP in $APPS; do
-    brew cask install "$APP"
-done
+brew cask install $APPS

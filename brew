@@ -11,17 +11,35 @@ INSTALLED=0
 command -v brew && INSTALLED=1
 
 if [[ $INSTALLED -eq 0 ]]; then
-    echo "Installing brew... Let's hope this is safe!"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "# Brew isn't installed! Get it here:"
+    echo "open http://brew.sh/"
+    exit 1
 fi
 
-PROGRAMS="git zsh curl htop-osx httpie jq nmap node pv python python3 ssh-copy-id the_silver_searcher tig vimpager wget shellcheck"
+APPS="git \
+    zsh \
+    curl \
+    htop-osx \
+    httpie \
+    jq \
+    nmap \
+    node \
+    pv \
+    python \
+    python3 \
+    ssh-copy-id \
+    the_silver_searcher \
+    tig \
+    vimpager \
+    wget \
+    shellcheck \
+    mpv \
+    vim \
+    vimpager"
 
 brew update
 brew upgrade
 
-for PROGRAM in $PROGRAMS; do
-    brew install "$PROGRAM"
-done
+brew install $APPS
 
 brew cleanup
