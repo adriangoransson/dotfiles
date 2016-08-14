@@ -2,7 +2,7 @@
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/Wombat Color Scheme/Wombat.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
-	"font_face": "dejavu sans mono",
+	"font_face": "Roboto Mono",
 	"highlight_line": true,
 	"ignored_packages":
 	[

@@ -1,16 +1,26 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 if [[ `uname` != 'Darwin' ]]; then
     echo "OSX only"
     exit 1
 fi
 
-echo "Fetching and unpacking DejaVu Fonts..."
+echo 'Creating temporary directory...'
+FONTS_DIR="$(mktemp -d)"
+echo "... $FONTS_DIR"
+
+cleanup() {
+    echo "Removing temporary directory $FONTS_DIR"
+    rm -rf "$FONTS_DIR"
+}
+trap cleanup EXIT
+
+echo 'Fetching and unpacking DejaVu Fonts...'
 # Fetch the latest deja vu sans. L flag follows redirects. -s is silent mode.
-curl -L -s http://sourceforge.net/projects/dejavu/files/latest/download | tar xz
+curl -L -s 'http://sourceforge.net/projects/dejavu/files/latest/download' | tar xz -C "$FONTS_DIR"
 
-echo "Moving fonts to ~/Library/Fonts/"
-mv dejavu*/ttf/* ~/Library/Fonts/
+echo 'Fetching and unpacking Roboto Mono...'
+curl -L -s 'https://fonts.google.com/download?family=Roboto%20Mono' | tar xz -C "$FONTS_DIR"
 
-echo "Removing unpacked files."
-rm -rf dejavu*
+echo 'Moving fonts to ~/Library/Fonts/'
+mv "$FONTS_DIR"/**/*.ttf ~/Library/Fonts/
