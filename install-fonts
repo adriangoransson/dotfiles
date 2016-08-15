@@ -9,18 +9,20 @@ echo 'Creating temporary directory...'
 FONTS_DIR="$(mktemp -d)"
 echo "... $FONTS_DIR"
 
+dlxfont() {
+    echo "Downloading and extracting $1..."
+    curl -L -s "$2" | tar xz -C "$FONTS_DIR"
+}
+
 cleanup() {
     echo "Removing temporary directory $FONTS_DIR"
     rm -rf "$FONTS_DIR"
 }
 trap cleanup EXIT
 
-echo 'Fetching and unpacking DejaVu Fonts...'
-# Fetch the latest deja vu sans. L flag follows redirects. -s is silent mode.
-curl -L -s 'http://sourceforge.net/projects/dejavu/files/latest/download' | tar xz -C "$FONTS_DIR"
-
-echo 'Fetching and unpacking Roboto Mono...'
-curl -L -s 'https://fonts.google.com/download?family=Roboto%20Mono' | tar xz -C "$FONTS_DIR"
+dlxfont 'DejaVu Fonts' 'http://sourceforge.net/projects/dejavu/files/latest/download'
+dlxfont 'Roboto Mono' 'https://fonts.google.com/download?family=Roboto%20Mono'
+dlxfont 'Hack font' 'https://github.com/chrissimpkins/Hack/releases/download/v2.020/Hack-v2_020-ttf.zip'
 
 echo 'Moving fonts to ~/Library/Fonts/'
 mv "$FONTS_DIR"/**/*.ttf ~/Library/Fonts/
