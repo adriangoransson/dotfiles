@@ -1,7 +1,16 @@
 #!/usr/bin/env zsh
 
 DOTFILES=$(dirname "$0:A")
+WAIT=30
 
 if [[ $(uname) == 'Darwin' ]]; then
+    rm -rf "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
     ln -s "$DOTFILES/Packages/User" "$HOME/Library/Application Support/Sublime Text 3/Packages"
+
+    # Sublime will overwrite the preferences file with defaults
+    # because it depends on packages that are currently being downloaded
+    subl
+    echo "Waiting $WAIT seconds for Sublime to download all dependencies..."
+    sleep "$WAIT"
+    git checkout $(git symbolic-ref HEAD) -- "$DOTFILES"/Packages/User/Preferences.sublime-settings
 fi
