@@ -16,26 +16,28 @@ if [[ $INSTALLED -eq 0 ]]; then
     exit 1
 fi
 
-APPS="git \
-    zsh \
+APPS="\
     curl \
+    git \
     htop-osx \
     httpie \
     jq \
+    mpv \
     nmap \
     node \
     pv \
     python \
     python3 \
+    shellcheck \
     ssh-copy-id \
     the_silver_searcher \
     tig \
+    vim \
+    vimpager \
     vimpager \
     wget \
-    shellcheck \
-    mpv \
-    vim \
-    vimpager"
+    zsh \
+"
 
 brew update
 brew upgrade
