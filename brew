@@ -23,7 +23,7 @@ APPS="\
     httpie \
     jq \
     nmap \
-    node \
+    nvm \
     pv \
     python \
     python3 \
