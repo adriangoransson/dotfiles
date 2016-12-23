@@ -4,7 +4,6 @@
 	name = Adrian Göransson
     # Set email per project
 [core]
-    pager =  diff-highlight | less
 [alias]
     ci = commit -v
     new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
