@@ -22,7 +22,6 @@ APPS="\
     htop-osx \
     httpie \
     jq \
-    mpv \
     nmap \
     node \
     pv \
@@ -39,9 +38,17 @@ APPS="\
     zsh \
 "
 
+WITH_OPTS=(\
+    "--with-bundle mpv" \
+)
+
 brew update
 brew upgrade
 
 brew install $APPS
+
+for APP in "${WITH_OPTS[@]}"; do
+    brew install $APP
+done
 
 brew cleanup
