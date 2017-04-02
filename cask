@@ -7,7 +7,7 @@ if [[ $(uname) != 'Darwin' ]]; then
 fi
 
 APPS="iterm2-beta \
-    firefoxdeveloperedition \
+    firefox-beta \
     dropbox \
     google-drive \
     keepassx \
