@@ -1,3 +1,4 @@
 {
-    "anaconda_linting_behaviour": "load-save"
+    "anaconda_linting_behaviour": "load-save",
+    "python_interpreter": "python3"
 }
