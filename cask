@@ -9,18 +9,14 @@ fi
 APPS="iterm2-beta \
     firefox-beta \
     dropbox \
-    google-drive \
+    google-backup-and-sync \
     keepassx \
     itsycal \
     alfred \
     flux \
     sublime-text-dev \
     steam \
-    skype \
-    spotify \
-    chromium \
-    karabiner \
-    smoothmouse"
+    spotify"
 
 brew tap caskroom/cask
 brew tap caskroom/versions
