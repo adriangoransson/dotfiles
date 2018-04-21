@@ -13,6 +13,7 @@
     },
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
     "git.enabled": false,
     "[python]": {},
     "workbench.statusBar.feedback.visible": false,
