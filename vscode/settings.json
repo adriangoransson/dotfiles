@@ -1,0 +1,22 @@
+{
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "workbench.colorTheme": "Base16 Eighties Dark",
+    "editor.minimap.enabled": false,
+    "[vue]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "git.enabled": false,
+    "[python]": {},
+    "workbench.statusBar.feedback.visible": false,
+    "window.zoomLevel": 0,
+    "editor.renderWhitespace": "boundary",
+    "terminal.external.osxExec": "iTerm.app"
+}
