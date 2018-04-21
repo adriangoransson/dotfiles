@@ -18,6 +18,5 @@
     "[python]": {},
     "workbench.statusBar.feedback.visible": false,
     "window.zoomLevel": 0,
-    "editor.renderWhitespace": "boundary",
     "terminal.external.osxExec": "iTerm.app"
 }
