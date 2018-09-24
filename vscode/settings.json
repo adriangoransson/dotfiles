@@ -18,5 +18,16 @@
     "[python]": {},
     "workbench.statusBar.feedback.visible": false,
     "window.zoomLevel": 0,
-    "terminal.external.osxExec": "iTerm.app"
+    "terminal.external.osxExec": "iTerm.app",
+    "vetur.grammar.customBlocks": {
+        "docs": "md",
+        "i18n": "yaml"
+    },
+    "[terraform]": {
+        "editor.tabSize": 2
+    },
+    "breadcrumbs.enabled": false,
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+    },
 }
