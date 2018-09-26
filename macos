@@ -125,6 +125,9 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Disable continuous spell checking
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
+# Mojave: font rendering is blurry (https://github.com/Microsoft/vscode/issues/51132)
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+
 # Restart to apply changes
 killall Finder Dock Messages
 
