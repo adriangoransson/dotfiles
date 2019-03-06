@@ -6,8 +6,6 @@
 [core]
 [alias]
     ci = commit -v
-    new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-    dfst = diff --stat -r
     ch = checkout
     pl = pull
     ph = push
@@ -17,6 +15,6 @@
     rh = reset --hard
     st = status
     df = diff
+    dfst = diff --stat -r
+    dff = !git diff | diff-so-fancy | less --tabs=4 -RFX
     l = log --date=local
-    del = branch -d
-    fdel = branch -D
