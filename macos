@@ -1,7 +1,8 @@
-#!/usr/bin/env bash
-# vim: set ft=sh
+#!/usr/bin/env sh
+set -euo pipefail
+set -x
 
-if [[ `uname` != 'Darwin' ]]; then
+if [ "$(uname)" != 'Darwin' ]; then
     echo "macOS only"
     exit 1
 fi
@@ -131,5 +132,3 @@ defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
 
 # Restart to apply changes
 killall Finder Dock Messages
-
-echo "Done"
