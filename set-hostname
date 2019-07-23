@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -euo pipefail
+set -x
+
+if [ "$(uname)" = "Darwin" ]; then
+    sudo scutil --set HostName "$1"
+    sudo scutil --set ComputerName "$1"
+    sudo scutil --set LocalHostName "$1"
+else
+    sudo hostname "$1"
+    echo "$1" > /etc/hostname
+fi
