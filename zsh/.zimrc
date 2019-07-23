@@ -37,7 +37,7 @@ zmodules=(directory environment git-info history input custom \
 # ${PWD} are only evaluated once. Use prompt expansion strings for dynamic data:
 #   http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
 # The example below uses the following format: 'username@host:/current/directory'
-ztermtitle='%n@%m:%~'
+ztermtitle='%n@%m:%3~' # 3 directory layers
 
 #
 # Input
