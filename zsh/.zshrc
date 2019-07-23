@@ -14,8 +14,6 @@ zshrc_init_common() {
     export EDITOR='vim'
     export VISUAL='vim'
 
-    export NVM_DIR="$HOME/.nvm"
-
     # Don't push lines that begin with space onto the history
     setopt hist_ignore_space
 
@@ -25,7 +23,6 @@ zshrc_init_common() {
     bindkey -M vicmd 'K' run-help
 
     alias vp='vimpager'
-
 }
 
 zshrc_init_linux() {
@@ -39,12 +36,6 @@ zshrc_init_macos() {
 
     alias ls='ls -G'
     alias jobs='jobs -d'
-
-    if [[ -d "$NVM_DIR" ]] && [[ -f "/usr/local/opt/nvm/nvm.sh" ]]; then
-        nvm() {
-            . "/usr/local/opt/nvm/nvm.sh" && nvm $@
-        }
-    fi
 }
 
 zshrc_source_local() {
