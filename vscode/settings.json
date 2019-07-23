@@ -1,9 +1,8 @@
 {
-    "sublimeTextKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "editor.formatOnPaste": true,
-    "workbench.colorTheme": "Base16 Eighties Dark",
+    "workbench.colorTheme": "GitHub Plus",
     "editor.minimap.enabled": false,
     "[vue]": {
         "editor.tabSize": 2
@@ -15,19 +14,21 @@
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "git.enabled": false,
-    "[python]": {},
     "workbench.statusBar.feedback.visible": false,
     "window.zoomLevel": 0,
-    "terminal.external.osxExec": "iTerm.app",
+    "terminal.external.osxExec": "terminal.app",
     "vetur.grammar.customBlocks": {
         "docs": "md",
         "i18n": "yaml"
     },
-    "[terraform]": {
-        "editor.tabSize": 2
-    },
     "breadcrumbs.enabled": false,
     "[markdown]": {
-        "files.trimTrailingWhitespace": false,
+        "files.trimTrailingWhitespace": false
     },
+    "[rust]": {
+        "editor.formatOnSave": true
+    },
+    "[python]": {
+        "editor.formatOnSave": true
+    }
 }
