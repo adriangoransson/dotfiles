@@ -1,19 +1,27 @@
 #!/usr/bin/env zsh
+set -euo pipefail
+set -x
 
 DOTFILES=$(dirname $0:A)
-CHSH="chsh -s /usr/local/bin/zsh"
 
-# Install prezto
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+# Install zim
+git clone --recursive https://github.com/zimfw/zimfw.git ${ZDOTDIR:-${HOME}}/.zim
 
-# Prezto files
-ln -s "$HOME/.zprezto/runcoms/zprofile" "$HOME/.zprofile"
-ln -s "$HOME/.zprezto/runcoms/zshenv" "$HOME/.zshenv"
-ln -s "$HOME/.zprezto/runcoms/zlogin" "$HOME/.zlogin"
+# Prepend the initialization templates to your configs:
+for template_file in ${ZDOTDIR:-${HOME}}/.zim/templates/*; do
+    user_file="${ZDOTDIR:-${HOME}}/.${template_file:t}"
+    cat ${template_file} ${user_file}(.N) > ${user_file}.tmp && mv ${user_file}{.tmp,}
+done
+
+# Finish optimization (this is only needed once, hereafter it will happen upon desktop/tty login):
+source ${ZDOTDIR:-${HOME}}/.zlogin
 
 # Personal configuration
-ln -s "$DOTFILES/.zpreztorc" "$HOME/.zpreztorc"
-ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
+ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
+ln -sf "$DOTFILES/.zimrc" "$HOME/.zimrc"
 
-echo $CHSH
-eval $CHSH
+# Copy over prompt theme
+mkdir -p "$HOME/.zprompts"
+ln -s "$DOTFILES/amini-theme.zsh" "$HOME/.zprompts/prompt_amini_setup"
+
+chsh -s zsh
