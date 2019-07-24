@@ -7,7 +7,7 @@ _zshrc_start_zim() {
 }
 
 _zshrc_prompt() {
-    fpath=( "$HOME/.zprompts" $fpath )
+    fpath=($fpath "$HOME/.zprompts")
     autoload -Uz promptinit && promptinit
 
     prompt amini

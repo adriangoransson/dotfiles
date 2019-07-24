@@ -21,11 +21,17 @@ ln -sf "$DOTFILES/.zimrc" "$HOME/.zimrc"
 mkdir -p "$HOME/.zprompts"
 ln -sf "$DOTFILES/amini-theme.zsh" "$HOME/.zprompts/prompt_amini_setup"
 
+local ZSH_PATH="$(brew --prefix)/bin/zsh"
+
+if ! grep -q "$ZSH_PATH" /etc/shells; then
+    # https://stackoverflow.com/a/44549662
+    sudo sh -c "echo $ZSH_PATH >> /etc/shells"
+fi
+
+chsh -s "$ZSH_PATH"
+
 set +x
 echo "Run this on next shell start to finish optimization
 (this is only needed once, hereafter it will happen upon desktop/tty login):
 
     source ${ZDOTDIR:-${HOME}}/.zlogin"
-set -x
-
-chsh -s zsh
