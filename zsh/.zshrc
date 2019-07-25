@@ -1,3 +1,5 @@
+# vim:foldmethod=syntax
+
 _zshrc_start_zim() {
     # Define zim location
     export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
@@ -13,7 +15,7 @@ _zshrc_prompt() {
     prompt amini
 }
 
-_zshrc_init_common() {
+_zshrc_env() {
     export PATH=$PATH:~/bin
 
     export LC_ALL=en_US.UTF-8
@@ -21,39 +23,38 @@ _zshrc_init_common() {
 
     export EDITOR='vim'
     export VISUAL='vim'
+}
 
-    bindkey -M vicmd 'K' run-help
+_zshrc_aliases() {
+    if [ "$(uname)" = 'Darwin' ]; then
+        alias ls='ls -G'
+        alias jobs='jobs -d'
+    elif [ "$(uname)" = 'Linux' ]; then
+        alias ls='ls --color'
+    fi
 
-    alias vp='vimpager'
+    alias rm='rm -vi'
+    alias cp='cp -vi'
+    alias mv='mv -vi'
+
     alias g='git'
+    alias vp='vimpager'
 }
 
-_zshrc_init_linux() {
-    if [[ $(uname) != 'Linux' ]]; then return; fi
-
-    alias ls='ls --color'
+_zshrc_misc_opts() {
+    bindkey -M vicmd 'K' run-help
 }
 
-_zshrc_init_macos() {
-    if [[ $(uname) != 'Darwin' ]]; then return; fi
-
-    alias ls='ls -G'
-    alias jobs='jobs -d'
-}
-
-_zshrc_source_local() {
+_zshrc_source_local_rc() {
     local LOCALRC="$HOME/.zshlocalrc"
 
-    if [[ -f "$LOCALRC" ]]; then
-        source "$LOCALRC"
-    fi
+    [[ -f "$LOCALRC" ]] && source "$LOCALRC"
 }
-
 
 _zshrc_start_zim
 _zshrc_prompt
 
-_zshrc_init_common
-_zshrc_init_linux
-_zshrc_init_macos
-_zshrc_source_local
+_zshrc_env
+_zshrc_aliases
+_zshrc_misc_opts
+_zshrc_source_local_rc
