@@ -46,7 +46,7 @@ _zshrc_misc_opts() {
 }
 
 _zshrc_source_local_rc() {
-    local LOCALRC="$HOME/.zshlocalrc"
+    local LOCALRC="$HOME/.zshrc.local"
 
     [[ -f "$LOCALRC" ]] && source "$LOCALRC"
 }
