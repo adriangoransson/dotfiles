@@ -30,7 +30,13 @@ prompt_amini_setup() {
     zstyle ':zim:git-info:keys' format \
         'prompt' " (%b%c%i%I%u%S%f)%s"
 
-    PROMPT="%F{magenta}[%m]%f %F{yellow}%2~%f\$(prompt_amini_git) » "
+    PROMPT=''
+
+    PROMPT+='%F{magenta}[%m]%f '    # [hostname]
+    PROMPT+='%F{yellow}%2~%f'       # 2 layers of dirs from ~
+    PROMPT+="\$(prompt_amini_git) " # (git status)
+    PROMPT+='%(?..%F{red})'         # begin red if $? != 0
+    PROMPT+='»%f '                  # symbol and end color
 }
 
 prompt_amini_setup "${@}"
