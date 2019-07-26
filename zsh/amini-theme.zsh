@@ -9,10 +9,59 @@ prompt_amini_git() {
 
 prompt_amini_precmd() {
     (( ${+functions[git-info]} )) && git-info
+
+    LAST_COMMAND_DURATION=0
+    if [ -n "$LAST_COMMAND_START" ]; then
+        local -F now=EPOCHREALTIME
+
+        LAST_COMMAND_DURATION=$(( now - LAST_COMMAND_START ))
+
+        unset LAST_COMMAND_START
+    fi
+}
+
+prompt_amini_preexec() {
+    [ -z "$1" ] && return
+
+    typeset -gF LAST_COMMAND_START=EPOCHREALTIME
+}
+
+prompt_amini_time_elapsed() {
+    # use global value or default to 2
+    local -F timeout=${COMMAND_TIMER_THRESHOLD:-2}
+    (( LAST_COMMAND_DURATION < timeout )) && return
+
+    # zsh rounds to zero so add .5 seconds for nearest int
+    local -i dur_seconds=$(( LAST_COMMAND_DURATION + 0.5 ))
+    local text=''
+
+    if (( dur_seconds < 60 )); then
+        # s
+        text+="$dur_seconds"
+    else
+        # mm:ss
+        local -i minutes=$(( dur_seconds / 60 ))
+        local -i seconds=$(( dur_seconds % 60 ))
+
+        (( minutes < 10 )) && text+='0'
+        text+="$minutes:"
+
+        (( seconds < 10 )) && text+='0'
+        text+="$seconds"
+    fi
+
+    echo -n "${text}s"
 }
 
 prompt_amini_setup() {
-    autoload -Uz add-zsh-hook && add-zsh-hook precmd prompt_amini_precmd
+    autoload -Uz add-zsh-hook \
+        && add-zsh-hook precmd prompt_amini_precmd \
+        && add-zsh-hook preexec prompt_amini_preexec
+
+    # enable use of EPOCHREALTIME
+    zmodload zsh/datetime
+
+    typeset -gF LAST_COMMAND_DURATION=0
 
     prompt_opts=(cr percent sp subst)
 
@@ -30,13 +79,18 @@ prompt_amini_setup() {
     zstyle ':zim:git-info:keys' format \
         'prompt' " (%b%c%i%I%u%S%f)%s"
 
+    # begin red if $? != 0
+    local red_if_error='%(?..%F{red})'
+
     PROMPT=''
 
     PROMPT+='%F{magenta}[%m]%f '    # [hostname]
     PROMPT+='%F{yellow}%2~%f'       # 2 layers of dirs from ~
     PROMPT+="\$(prompt_amini_git) " # (git status)
-    PROMPT+='%(?..%F{red})'         # begin red if $? != 0
+    PROMPT+="$red_if_error"
     PROMPT+='»%f '                  # symbol and end color
+
+    RPROMPT="$red_if_error\$(prompt_amini_time_elapsed)%f"
 }
 
 prompt_amini_setup "${@}"
