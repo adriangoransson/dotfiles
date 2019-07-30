@@ -39,6 +39,8 @@ _zshrc_aliases() {
 
     alias g='git'
     alias vp='vimpager'
+
+    alias history='history -dD' # show timestamp + elapsed time
 }
 
 _zshrc_misc_opts() {
