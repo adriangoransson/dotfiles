@@ -67,7 +67,7 @@ prompt_amini_setup() {
 
     zstyle ':zim:git-info' verbose 'yes'
 
-    zstyle ':zim:git-info:action' format '(%s)'
+    zstyle ':zim:git-info:action' format '%F{cyan}%s%f '
 
     zstyle ':zim:git-info:branch' format '%b'
     zstyle ':zim:git-info:commit' format '%c'
@@ -77,7 +77,7 @@ prompt_amini_setup() {
     zstyle ':zim:git-info:untracked' format '%F{red}●'
 
     zstyle ':zim:git-info:keys' format \
-        'prompt' " (%b%c%i%I%u%S%f)%s"
+        'prompt' " (%s%b%c%i%I%u%S%f)"
 
     # begin red if $? != 0
     local red_if_error='%(?..%F{red})'
