@@ -33,8 +33,6 @@ fi
 
 chsh -s "$ZSH_PATH"
 
-set +x
-echo "Run this on next shell start to finish optimization
-(this is only needed once, hereafter it will happen upon desktop/tty login):
-
-    source ${ZDOTDIR:-${HOME}}/.zlogin"
+# Finish optimization
+# this is only needed once, hereafter it will happen upon desktop/tty login
+ZDOTDIR=${ZDOTDIR:-${HOME}} $ZSH_PATH -ic 'source ${ZDOTDIR}/.zlogin; exit'
