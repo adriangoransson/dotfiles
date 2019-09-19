@@ -30,5 +30,6 @@
     },
     "[python]": {
         "editor.formatOnSave": true
-    }
+    },
+    "rust-analyzer.cargo-watch.command": "clippy"
 }

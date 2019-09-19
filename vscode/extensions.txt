@@ -4,11 +4,11 @@ christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 dariofuzinato.vue-peek
 dbaeumer.vscode-eslint
+matklad.ra-lsp
 ms-python.python
 ms-vscode.Go
 ms-vscode.sublime-keybindings
 octref.vetur
-rust-lang.rust
 thenikso.github-plus-theme
 wayou.vscode-todo-highlight
 xabikos.JavaScriptSnippets
