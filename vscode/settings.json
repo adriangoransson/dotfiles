@@ -14,7 +14,6 @@
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "git.enabled": false,
-    "workbench.statusBar.feedback.visible": false,
     "window.zoomLevel": 0,
     "terminal.external.osxExec": "terminal.app",
     "vetur.grammar.customBlocks": {
@@ -31,5 +30,19 @@
     "[python]": {
         "editor.formatOnSave": true
     },
-    "rust-analyzer.cargo-watch.command": "clippy"
+    "rust-analyzer.cargo-watch.command": "clippy",
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[css]": {
+        "editor.tabSize": 2
+    },
+    "editor.renderWhitespace": "selection",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.settings.openDefaultSettings": true,
+    "workbench.settings.editor": "json",
+    "search.showLineNumbers": true,
+    "telemetry.enableTelemetry": false,
+    "workbench.settings.useSplitJSON": true,
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_"
 }
