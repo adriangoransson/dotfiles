@@ -2,7 +2,6 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "editor.formatOnPaste": true,
-    "workbench.colorTheme": "GitHub Plus",
     "editor.minimap.enabled": false,
     "[vue]": {
         "editor.tabSize": 2
@@ -44,5 +43,8 @@
     "search.showLineNumbers": true,
     "telemetry.enableTelemetry": false,
     "workbench.settings.useSplitJSON": true,
-    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_"
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
+    "autoDarkMode.darkTheme": "Base16 Eighties Dark",
+    "autoDarkMode.lightTheme": "GitHub Plus",
+    "workbench.colorTheme": "GitHub Plus"
 }
