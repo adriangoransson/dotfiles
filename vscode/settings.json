@@ -1,50 +1,50 @@
 {
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.snippetSuggestions": "top",
+    "autoDarkMode.darkTheme": "Base16 Eighties Dark",
+    "autoDarkMode.lightTheme": "GitHub Plus",
+    "breadcrumbs.enabled": false,
     "editor.formatOnPaste": true,
     "editor.minimap.enabled": false,
-    "[vue]": {
-        "editor.tabSize": 2
-    },
-    "[javascript]": {
-        "editor.tabSize": 2
-    },
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.renderWhitespace": "selection",
+    "editor.snippetSuggestions": "top",
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
     "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     "git.enabled": false,
-    "window.zoomLevel": 0,
+    "rust-analyzer.cargo-watch.command": "clippy",
+    "search.showLineNumbers": true,
+    "telemetry.enableTelemetry": false,
     "terminal.external.osxExec": "terminal.app",
     "vetur.grammar.customBlocks": {
         "docs": "md",
         "i18n": "yaml"
     },
-    "breadcrumbs.enabled": false,
-    "[markdown]": {
-        "files.trimTrailingWhitespace": false
-    },
-    "[rust]": {
-        "editor.formatOnSave": true
-    },
-    "[python]": {
-        "editor.formatOnSave": true
-    },
-    "rust-analyzer.cargo-watch.command": "clippy",
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "GitHub Plus",
+    "workbench.settings.editor": "json",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.settings.openDefaultSettings": true,
+    "workbench.settings.useSplitJSON": true,
     "[html]": {
         "editor.tabSize": 2
     },
     "[css]": {
         "editor.tabSize": 2
     },
-    "editor.renderWhitespace": "selection",
-    "workbench.settings.enableNaturalLanguageSearch": false,
-    "workbench.settings.openDefaultSettings": true,
-    "workbench.settings.editor": "json",
-    "search.showLineNumbers": true,
-    "telemetry.enableTelemetry": false,
-    "workbench.settings.useSplitJSON": true,
-    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
-    "autoDarkMode.darkTheme": "Base16 Eighties Dark",
-    "autoDarkMode.lightTheme": "GitHub Plus",
-    "workbench.colorTheme": "GitHub Plus"
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    },
+    "[python]": {
+        "editor.formatOnSave": true
+    },
+    "[rust]": {
+        "editor.formatOnSave": true
+    },
+    "[vue]": {
+        "editor.tabSize": 2
+    },
 }
