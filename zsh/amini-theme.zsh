@@ -81,18 +81,29 @@ prompt_amini_setup() {
 
     zstyle ':zim:git-info:keys' format 'prompt' " (%s%b%c%A%B%i%I%u%S%f)"
 
-    # begin red if $? != 0
-    local red_if_error='%(?..%F{red})'
+    # zsh foreground colors
+    local mag='%F{magenta}'
+    local yel='%F{yellow}'
+    local red='%F{red}'
+    local rst='%f'  # reset
+
+    # zsh variables
+    local hostname='%m'
+    local username='%n'
+    local dir='%2~' # 2 layers of dirs from ~
+
+    local error_color="%(?..${red})"            # begin red if $? != 0
+    local user="%(!.${red}${username}${mag}@.)" # if privileged, show user in red
 
     PROMPT=''
 
-    PROMPT+='%F{magenta}[%m]%f '    # [hostname]
-    PROMPT+='%F{yellow}%2~%f'       # 2 layers of dirs from ~
-    PROMPT+="\$(prompt_amini_git) " # (git status)
-    PROMPT+="$red_if_error"
-    PROMPT+='»%f '                  # symbol and end color
+    PROMPT+="${mag}[${user}${mag}${hostname}] " # [user@hostname]
+    PROMPT+="${yel}${dir}${rst}"
+    PROMPT+="\$(prompt_amini_git) "             # (git status)
+    PROMPT+="${error_color}"
+    PROMPT+="»${rst} "                          # symbol and end color
 
-    RPROMPT="$red_if_error\$(prompt_amini_time_elapsed)%f"
+    RPROMPT="${error_color}\$(prompt_amini_time_elapsed)${rst}"
 }
 
 prompt_amini_setup "${@}"
