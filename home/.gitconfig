@@ -2,6 +2,7 @@
     ui = auto
 [user]
 	name = Adrian Göransson
+	signingKey = 76A773897E7969B5
     # Set email per project
 [core]
 [alias]
@@ -18,3 +19,7 @@
     dfst = diff --stat -r
     l = log --date=local
     sh = show
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
