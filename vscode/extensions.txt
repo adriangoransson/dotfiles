@@ -5,6 +5,7 @@ christian-kohler.path-intellisense
 dariofuzinato.vue-peek
 dbaeumer.vscode-eslint
 LinusU.auto-dark-mode
+matklad.rust-analyzer
 ms-python.python
 ms-vscode.Go
 ms-vscode.sublime-keybindings
