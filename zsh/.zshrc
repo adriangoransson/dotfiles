@@ -23,6 +23,9 @@ _zshrc_env() {
 
     export EDITOR='vim'
     export VISUAL='vim'
+
+    # https://stackoverflow.com/a/36524681
+    export GPG_TTY=$(tty)
 }
 
 _zshrc_aliases() {
