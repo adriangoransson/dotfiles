@@ -4,22 +4,29 @@ set -x
 
 DOTFILES=$(dirname $0:A)
 
-# Install zim
-git clone --recursive https://github.com/zimfw/zimfw.git ${ZDOTDIR:-${HOME}}/.zim
+export ZIM_HOME="$HOME/.zim"
+ZSHENV="$HOME/.zshenv"
+ZLOGIN="$HOME/.zlogin"
 
-# Prepend the initialization templates to your configs:
-for template_file in ${ZDOTDIR:-${HOME}}/.zim/templates/*; do
-    user_file="${ZDOTDIR:-${HOME}}/.${template_file:t}"
-    cat ${template_file} ${user_file}(.N) > ${user_file}.tmp && mv ${user_file}{.tmp,}
-done
+# Install zim
+mkdir -p "$ZIM_HOME"
+curl -L https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh -o "$ZIM_HOME/zimfw.zsh"
+
+if ! grep -q ZIM "$ZSHENV"; then
+    echo ': ${ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim}' >> "$ZSHENV"
+fi
+
+if ! grep -q ZIM "$ZLOGIN"; then
+    echo 'source ${ZIM_HOME}/login_init.zsh -q &!' >> "$ZLOGIN"
+fi
 
 # Personal configuration
 ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES/.zimrc" "$HOME/.zimrc"
 
 # Copy over prompt theme
-mkdir -p "$HOME/.zprompts"
-ln -sf "$DOTFILES/amini-theme.zsh" "$HOME/.zprompts/prompt_amini_setup"
+mkdir -p "$HOME/.zfunctions"
+ln -sf "$DOTFILES/amini-theme.zsh" "$HOME/.zfunctions/prompt_amini_setup"
 
 local ZSH_PATH="$(which zsh)"
 if [ "$(uname)" = 'Darwin' ]; then
@@ -33,6 +40,4 @@ fi
 
 chsh -s "$ZSH_PATH"
 
-# Finish optimization
-# this is only needed once, hereafter it will happen upon desktop/tty login
-ZDOTDIR=${ZDOTDIR:-${HOME}} $ZSH_PATH -ic 'source ${ZDOTDIR}/.zlogin; exit'
+$ZSH_PATH -ic "source $ZIM_HOME/zimfw.zsh install"
