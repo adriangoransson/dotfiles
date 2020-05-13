@@ -1,6 +1,4 @@
 {
-    "autoDarkMode.darkTheme": "Base16 Eighties Dark",
-    "autoDarkMode.lightTheme": "GitHub Plus",
     "breadcrumbs.enabled": false,
     "editor.formatOnPaste": true,
     "editor.minimap.enabled": false,
@@ -20,8 +18,11 @@
         "docs": "md",
         "i18n": "yaml"
     },
+    "window.autoDetectColorScheme": true,
     "window.zoomLevel": 0,
     "workbench.colorTheme": "GitHub Plus",
+    "workbench.preferredDarkColorTheme": "Base16 Eighties Dark",
+    "workbench.preferredLightColorTheme": "GitHub Plus",
     "workbench.settings.editor": "json",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.settings.openDefaultSettings": true,
