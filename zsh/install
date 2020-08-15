@@ -31,13 +31,15 @@ ln -sf "$DOTFILES/amini-theme.zsh" "$HOME/.zfunctions/prompt_amini_setup"
 local ZSH_PATH="$(which zsh)"
 if [ "$(uname)" = 'Darwin' ]; then
     ZSH_PATH="$(brew --prefix)/bin/zsh"
-fi
 
-if ! grep -q "$ZSH_PATH" /etc/shells; then
-    # https://stackoverflow.com/a/44549662
-    sudo sh -c "echo $ZSH_PATH >> /etc/shells"
+    if ! grep -q "$ZSH_PATH" /etc/shells; then
+        # https://stackoverflow.com/a/44549662
+        sudo sh -c "echo $ZSH_PATH >> /etc/shells"
+    fi
 fi
-
-chsh -s "$ZSH_PATH"
 
 $ZSH_PATH -ic "source $ZIM_HOME/zimfw.zsh install"
+
+set +x
+echo "\nDone! To change shell"
+echo "\tchsh -s ${ZSH_PATH}"
