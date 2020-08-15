@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
-set -euo pipefail
-set -x
+set -eux
 
-code --list-extensions > extensions.txt
+CODE_EXEC=${1:-code}
+
+$CODE_EXEC --list-extensions > extensions.txt
