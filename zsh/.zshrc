@@ -6,7 +6,7 @@ _zshrc_prompt() {
 }
 
 _zshrc_env() {
-    export PATH=$PATH:~/bin
+    export PATH="$HOME/bin:$PATH"
 
     export LC_ALL=en_US.UTF-8
     export LANG=en_US.UTF-8
@@ -43,7 +43,6 @@ _zshrc_misc_opts() {
     # Remove older command from the history if a duplicate is to be added.
     setopt HIST_IGNORE_ALL_DUPS
     HISTFILE="${HOME}/.zhistory"
-
 }
 
 _zshrc_source_local_rc() {
