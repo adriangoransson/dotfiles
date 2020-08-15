@@ -4,9 +4,9 @@ christian-kohler.npm-intellisense
 christian-kohler.path-intellisense
 dariofuzinato.vue-peek
 dbaeumer.vscode-eslint
+golang.go
 matklad.rust-analyzer
 ms-python.python
-ms-vscode.Go
 ms-vscode.sublime-keybindings
 octref.vetur
 thenikso.github-plus-theme
