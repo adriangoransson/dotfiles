@@ -33,3 +33,5 @@ program = gpg2 # Not all systems install a "gpg" symlink.
 
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
