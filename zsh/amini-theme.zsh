@@ -43,6 +43,15 @@ prompt_amini_time_elapsed() {
         local -i minutes=$(( dur_seconds / 60 ))
         local -i seconds=$(( dur_seconds % 60 ))
 
+        if (( dur_seconds >= 3600 )); then
+            # hh:mm:ss
+            local -i hours=$(( dur_seconds / 3600 ))
+            minutes=$(( minutes % 60 ))
+
+            (( hours < 10 )) && text+='0'
+            text+="$hours:"
+        fi
+
         (( minutes < 10 )) && text+='0'
         text+="$minutes:"
 
