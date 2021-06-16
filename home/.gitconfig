@@ -24,6 +24,8 @@ program = gpg2 # Not all systems install a "gpg" symlink.
     dfst = diff --stat -r
     l = log --date=local
     sh = show
+    rb = rebase
+    rbi = rebase -i
 
 [commit]
 	gpgSign = true
