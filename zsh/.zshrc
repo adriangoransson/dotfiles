@@ -8,8 +8,6 @@ _zshrc_prompt() {
 _zshrc_env() {
     export PATH="$HOME/.local/bin:$PATH"
 
-    export LANG=en_US.UTF-8
-
     export EDITOR='vim'
     export VISUAL='vim'
 
