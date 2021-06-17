@@ -1,5 +1,5 @@
 _zshrc_prompt() {
-    fpath=($fpath "$HOME/.zfunctions")
+    fpath=($fpath "$HOME/.config/zsh/fpath")
     autoload -Uz promptinit && promptinit
 
     prompt amini
