@@ -1,0 +1,16 @@
+font=Overpass 12
+border-size=1
+border-radius=5
+margin=15
+padding=10
+background-color=#0F0F0FE6
+text-color=#D8D8D8
+border-color=#D8D8D8
+default-timeout=8000
+
+[urgency=critical]
+border-color=#553333
+default-timeout=0
+
+[urgency=low]
+default-timeout=5000
