@@ -1,0 +1,8 @@
+configuration {
+	modi: "combi,emoji,calc";
+	font: "mono 14";
+	show-icons: true;
+	terminal: "kitty";
+	run-shell-command: "{terminal} {cmd}";
+	theme: "/home/adrian/.config/rofi/theme.rasi";
+}
