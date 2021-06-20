@@ -1,0 +1,85 @@
+* {
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: Overpass, sans-serif;
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(20, 20, 20, 0.9);
+    color: #d8d8d8;
+}
+
+#workspaces button {
+    padding: 0 7px;
+    background-color: transparent;
+    color: inherit;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    text-shadow: inherit;
+}
+
+#workspaces button.focused {
+    background-color: #333;
+}
+
+#workspaces button.urgent {
+    background-color: #553333;
+}
+
+#workspaces button.persistent {
+    color: #888;
+}
+
+#mode {
+    background-color: #64727D;
+    padding: 0 5px;
+}
+
+#workspaces,
+#window,
+#tray,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#battery,
+#clock
+{
+    margin: 0 10px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#tray {
+    padding: 0 10px;
+}
+
+#idle_inhibitor.activated {
+    color: orange;
+}
