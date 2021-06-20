@@ -1,0 +1,31 @@
+#!/bin/sh
+
+sxhkd &
+
+#               1   2    3    4    5
+bspc monitor -d web term code chat media 6 7 8 9
+
+bspc config border_width 1
+bspc config window_gap   8
+
+bspc config split_ratio        0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle    true
+
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+
+bspc rule -a 'Firefox' desktop='web' follow=on
+bspc rule -a kitty desktop='term' follow=on
+bspc rule -a 'Code - OSS' desktop='code' follow=on
+bspc rule -a TelegramDesktop desktop='chat' follow=on
+bspc rule -a mpv desktop='media' follow=on
+bspc rule -a Spotify desktop='media' follow=on
+
+bspc rule -a Pavucontrol state=floating
+
+# Java applications
+wmname LG3D
+
+$HOME/.config/polybar/launch.sh
+clight &
