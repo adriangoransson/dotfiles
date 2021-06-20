@@ -8,8 +8,8 @@ _zshrc_prompt() {
 _zshrc_env() {
     export PATH="$HOME/.local/bin:$PATH"
 
-    export EDITOR='vim'
-    export VISUAL='vim'
+    export EDITOR='nvim'
+    export VISUAL='nvim'
 
     # https://stackoverflow.com/a/36524681
     export GPG_TTY=$(tty)
