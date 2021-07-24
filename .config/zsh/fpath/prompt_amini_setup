@@ -109,6 +109,7 @@ prompt_amini_setup() {
     PROMPT+="${mag}[${user}${mag}${hostname}] " # [user@hostname]
     PROMPT+="${yel}${dir}${rst}"
     PROMPT+="\$(prompt_amini_git) "             # (git status)
+    PROMPT+="%(1j.${red}%j${rst} .)"            # amount of background jobs (if >0)
     PROMPT+="${error_color}"
     PROMPT+="»${rst} "                          # symbol and end color
 
