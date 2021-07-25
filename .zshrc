@@ -108,3 +108,35 @@ _zshrc_misc_opts
 _zshrc_source_local_rc
 
 _zshrc_start_zim
+
+# My own little project finder that I use to cd into git repos located in
+# $CODE_DIR (defaults to $HOME/code). It works with fzy and fd but will fall
+# back to fzf or find if necessary.
+p() {
+    local dir=${CODE_DIR:-"$HOME/code"}
+
+    local fuzzy=''
+    (( $+commands[fzf] )) && fuzzy=fzf
+    # The default 10 lines for fzy feels a bit cramped.
+    (( $+commands[fzy] )) && fuzzy='fzy -l 100'
+
+    test -z "$fuzzy" && echo "No fuzzy finder installed" && return 1
+
+    local find_cmd="find $dir -name '*.git' -type d"
+    (( $+commands[fd] )) && \
+        find_cmd="fd --hidden --type d --glob '*.git' $dir"
+
+    # Find all git folders and remove the:
+    # - common directory prefix $dir for all entries.
+    # - .git suffix to get the project root.
+    local projects=$(eval "$find_cmd" | sed -E "s|$dir/(.*)/.git$|\1|")
+
+    test -z "$projects" && echo "No git roots found in $dir" && return 1
+
+    local chosen=$(echo "$projects" | eval "$fuzzy")
+
+    # Make sure a dir was chosen so we don't cd to $dir.
+    test -z "$chosen" && return
+
+    cd "$dir/$chosen"
+}
