@@ -34,8 +34,13 @@ _zshrc_aliases() {
 }
 
 _zshrc_misc_opts() {
-    bindkey -v                    # vi bindings
-    bindkey -M vicmd 'K' run-help # open man page for the currently typed command
+    # Disable scroll lock on ctrl-s
+    # https://unix.stackexchange.com/questions/72086/ctrl-s-hangs-the-terminal-emulator
+    stty -ixon
+
+    bindkey -v                        # vi bindings
+    bindkey -M viins '^S' vi-cmd-mode # ctrl-s = escape
+    bindkey -M vicmd 'K' run-help     # open man page for the currently typed command
 
     # Remove older command from the history if a duplicate is to be added.
     setopt HIST_IGNORE_ALL_DUPS
