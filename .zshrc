@@ -122,9 +122,9 @@ p() {
 
     test -z "$fuzzy" && echo "No fuzzy finder installed" && return 1
 
-    local find_cmd="find $dir -name '*.git' -type d"
+    local find_cmd="find '$dir' -name '*.git' -type d"
     (( $+commands[fd] )) && \
-        find_cmd="fd --hidden --type d --glob '*.git' $dir"
+        find_cmd="fd --hidden --type d --glob '*.git' '$dir'"
 
     # Find all git folders and remove the:
     # - common directory prefix $dir for all entries.
