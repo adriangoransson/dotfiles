@@ -1,9 +1,10 @@
 let mapleader="\<Space>"
 
+map <c-c> <Esc>
+imap <c-c> <Esc>
+
 " Caps + Ö with svorak and xkb ctrl:nocaps
-map <C-s> <Esc>
-imap <C-s> <Esc>
-nmap <leader>s :w<CR>
+nmap <c-s> :w<CR>
 
 nnoremap <silent><Leader><Space> :b#<CR>
 
