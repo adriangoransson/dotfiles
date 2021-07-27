@@ -9,5 +9,7 @@ nnoremap <silent><Leader><Space> :b#<CR>
 
 nnoremap <silent><Leader>n :nohlsearch<cr>
 
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
