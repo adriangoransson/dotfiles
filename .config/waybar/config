@@ -54,7 +54,7 @@
     },
     "clock": {
     "format": "{:%a %e %b %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%Y %B - wk. %V}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "backlight": {
         // "device": "acpi_video1",
