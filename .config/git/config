@@ -6,6 +6,9 @@
 	signingKey = 76A773897E7969B5
     # Set email per project
 [core]
+	# special characters (like åäö) are messed up in viewers like telescope
+	# without this
+	quotepath = off
 
 [gpg]
 program = gpg2 # Not all systems install a "gpg" symlink.
