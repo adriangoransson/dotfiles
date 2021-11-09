@@ -39,12 +39,12 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = 'buffer' },
-    { name = 'calc' },
-    { name = 'latex_symbols' },
-    { name = 'luasnip' },
     { name = 'nvim_lsp' },
+    { name = 'latex_symbols' },
+    { name = 'calc' },
+    { name = 'luasnip' },
     { name = 'path' },
+    { name = 'buffer' },
   },
 }
 
