@@ -29,5 +29,4 @@ lua <<EOF
   require('plugin.treesitter')
   require('plugin.telescope-config')
   require('plugin.completion')
-  require('plugin.autopairs')
 EOF
