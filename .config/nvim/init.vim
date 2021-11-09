@@ -15,7 +15,6 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'p00f/nvim-ts-rainbow'
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'tjdevries/train.nvim'
   Plug 'tpope/vim-sleuth'
