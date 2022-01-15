@@ -24,7 +24,7 @@ program = gpg2 # Not all systems install a "gpg" symlink.
     rh = reset --hard
     st = status
     df = diff
-    dfst = diff --stat -r
+    dfst = diff --stat
     l = log --date=local
     sh = show
     rb = rebase
