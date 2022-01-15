@@ -14,7 +14,7 @@
 program = gpg2 # Not all systems install a "gpg" symlink.
 
 [alias]
-    ci = commit -v
+    ci = commit
     ch = checkout
     pl = pull
     ph = push
@@ -32,6 +32,7 @@ program = gpg2 # Not all systems install a "gpg" symlink.
 
 [commit]
 	gpgSign = true
+	verbose = true
 
 [tag]
 	gpgSign = true
