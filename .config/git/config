@@ -1,34 +1,32 @@
-[color]
-    ui = auto
-
 [user]
 	name = Adrian Göransson
 	signingKey = 76A773897E7969B5
-    # Set email per project
+	# email = set per project!
 [core]
 	# special characters (like åäö) are messed up in viewers like telescope
 	# without this
 	quotepath = off
 
 [gpg]
-program = gpg2 # Not all systems install a "gpg" symlink.
+	# Not all systems install a "gpg" symlink.
+	program = gpg2
 
 [alias]
-    ci = commit
-    ch = checkout
-    pl = pull
-    ph = push
-    f = fetch --tags
-    fa = fetch --all --tags
-    r = reset
-    rh = reset --hard
-    st = status
-    df = diff
-    dfst = diff --stat
-    l = log
-    sh = show
-    rb = rebase
-    rbi = rebase -i
+	ci = commit
+	ch = checkout
+	pl = pull
+	ph = push
+	f = fetch --tags
+	fa = fetch --all --tags
+	r = reset
+	rh = reset --hard
+	st = status
+	df = diff
+	dfst = diff --stat
+	l = log
+	sh = show
+	rb = rebase
+	rbi = rebase -i
 
 [commit]
 	gpgSign = true
@@ -39,7 +37,9 @@ program = gpg2 # Not all systems install a "gpg" symlink.
 
 [pull]
 	ff = only
+
 [init]
 	defaultBranch = main
+
 [log]
 	date = local
