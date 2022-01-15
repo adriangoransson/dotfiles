@@ -25,7 +25,7 @@ program = gpg2 # Not all systems install a "gpg" symlink.
     st = status
     df = diff
     dfst = diff --stat
-    l = log --date=local
+    l = log
     sh = show
     rb = rebase
     rbi = rebase -i
@@ -40,3 +40,5 @@ program = gpg2 # Not all systems install a "gpg" symlink.
 	ff = only
 [init]
 	defaultBranch = main
+[log]
+	date = local
