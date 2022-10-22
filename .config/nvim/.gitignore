@@ -1,3 +1,4 @@
 *.local.vim
 *.local.lua
 spell
+packer_compiled.lua
