@@ -1,0 +1,3 @@
+*.local.vim
+*.local.lua
+spell

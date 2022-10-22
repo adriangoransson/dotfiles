@@ -1,6 +1,19 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+require('nvim-treesitter.configs').setup({
+  ensure_installed = 'all',
+
+  ignore_install = { 'phpdoc', 'vala' },
+
   highlight = {
-    enable = true,              -- false will disable the whole extension
+    enable = true,
   },
-}
+})
+
+require('treesitter-context').setup({
+  patterns = {
+    default = {
+          'class',
+          'function',
+          'method',
+      },
+  },
+})
