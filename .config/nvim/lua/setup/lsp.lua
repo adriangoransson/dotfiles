@@ -87,7 +87,7 @@ local servers = {
       -- Get the language server to recognize the `vim` global
       diagnostics = { globals = { 'vim' } },
       -- Make the server aware of Neovim runtime files
-      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = { enable = false },
 
@@ -102,9 +102,9 @@ local servers = {
 }
 
 for lsp, settings in pairs(servers) do
-  lspconfig[lsp].setup {
+  lspconfig[lsp].setup({
     on_attach = on_attach,
     capabilities = capabilities,
     settings = settings,
-  }
+  })
 end

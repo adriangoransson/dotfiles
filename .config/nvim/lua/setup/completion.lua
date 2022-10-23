@@ -1,7 +1,7 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
-cmp.setup {
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -51,7 +51,7 @@ cmp.setup {
     { name = 'path' },
     { name = 'buffer' },
   }),
-}
+})
 
 require('nvim-autopairs').setup()
 cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
