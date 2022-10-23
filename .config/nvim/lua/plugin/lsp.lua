@@ -2,7 +2,7 @@ local lspconfig = require('lspconfig')
 
 local format_augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 local lsp_formatting = function()
-  ignored_clients = {
+  local ignored_clients = {
     gopls = true, -- gofumpt via null-ls.
     tsserver = true, -- prettier via null-ls.
     volar = true, -- prettier via null-ls.
@@ -79,6 +79,26 @@ local servers = {
   volar = {},
   tsserver = {},
   pylsp = {},
+  sumneko_lua = {
+    Lua = {
+      -- From https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
+      -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+      runtime = { version = 'LuaJIT' },
+      -- Get the language server to recognize the `vim` global
+      diagnostics = { globals = { 'vim' } },
+      -- Make the server aware of Neovim runtime files
+      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = { enable = false },
+
+      -- Trailing commas.
+      format = {
+        defaultConfig = {
+          trailing_table_separator = 'smart',
+        },
+      },
+    },
+  },
 }
 
 for lsp, settings in pairs(servers) do
