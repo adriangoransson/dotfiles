@@ -49,4 +49,4 @@ require('telescope').setup({
 })
 
 -- This will load fzy_native and have it override the default file sorter
-require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('zf-native')

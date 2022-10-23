@@ -124,7 +124,7 @@ require('packer').startup(function(use)
 
   -- Telescope
   use {
-    'nvim-telescope/telescope-fzy-native.nvim',
+    'natecraddock/telescope-zf-native.nvim',
     {
       'nvim-telescope/telescope.nvim',
       config = function() require('setup.telescope') end,
