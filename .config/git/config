@@ -1,15 +1,11 @@
 [user]
 	name = Adrian Göransson
-	signingKey = 76A773897E7969B5
-	# email = set per project!
-[core]
-	# special characters (like åäö) are messed up in viewers like telescope
-	# without this
-	quotepath = off
+	# signingKey = set per device.
+	# email = set per project.
 
 [gpg]
-	# Not all systems install a "gpg" symlink.
-	program = gpg2
+	format = ssh
+	# Set [gpg "ssh"].allowedSignersFile per device.
 
 [alias]
 	ci = commit
