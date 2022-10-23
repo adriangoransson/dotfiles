@@ -131,6 +131,7 @@ _zshrc_post_zim
 # $CODE_DIR (defaults to $HOME/code). It works with fzy and fd but will fall
 # back to fzf or find if necessary.
 p() {
+    local maxdepth=4
     local dir=${CODE_DIR:-"$HOME/code"}
 
     local fuzzy=''
@@ -140,17 +141,18 @@ p() {
 
     test -z "$fuzzy" && echo "No fuzzy finder installed" && return 1
 
-    local find_cmd="find '$dir' -name '*.git' -type d"
+    local find_cmd="find '$dir' -name '*.git' -type d -prune -maxdepth $maxdepth"
     (( $+commands[fd] )) && \
-        find_cmd="fd --hidden --type d --glob '*.git' '$dir'"
+        find_cmd="fd -u --prune --max-depth $maxdepth --type d --glob '*.git' '$dir'"
 
     # Find all git folders and remove the:
     # - common directory prefix $dir for all entries.
     # - .git suffix to get the project root.
-    local projects=$(eval "$find_cmd" | sed -E "s|$dir/(.*)/.git$|\1|")
+    local projects=$(eval "$find_cmd" | sed -E "s|$dir/(.*)/.git/?$|\1|")
 
     test -z "$projects" && echo "No git roots found in $dir" && return 1
 
+    test -n "$1" && fuzzy="$fuzzy -q $1"
     local chosen=$(echo "$projects" | eval "$fuzzy")
 
     # Make sure a dir was chosen so we don't cd to $dir.
