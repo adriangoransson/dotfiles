@@ -94,6 +94,7 @@ local servers = {
       -- Trailing commas.
       format = {
         defaultConfig = {
+          quote_style = 'single',
           trailing_table_separator = 'smart',
         },
       },
