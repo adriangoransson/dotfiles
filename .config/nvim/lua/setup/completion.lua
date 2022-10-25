@@ -18,10 +18,9 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
 
-    ['<CR>'] = cmp.mapping.confirm {
+    ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+    }),
 
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -44,12 +43,16 @@ cmp.setup({
     end, { 'i', 's' }),
   },
 
+  -- Each group is only shown if there are no suggestions from the previous group.
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'calc' },
-    { name = 'luasnip' },
-    { name = 'path' },
-    { name = 'buffer' },
+    {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+      { name = 'path' },
+    },
+    {
+      { name = 'buffer', keyword_length = 3 },
+    },
   }),
 })
 
