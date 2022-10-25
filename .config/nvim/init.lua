@@ -21,6 +21,7 @@ require('packer').startup(function(use)
       vim.cmd([[
         set background=light
         colorscheme github
+        highlight link LspSignatureActiveParameter CursorLine
       ]])
     end,
   }
