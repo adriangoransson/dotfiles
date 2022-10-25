@@ -6,7 +6,6 @@ require('packer').startup(function(use)
   use 'axelf4/vim-strip-trailing-whitespace'
   use 'habamax/vim-asciidoctor'
   use 'jghauser/mkdir.nvim'
-  use 'ray-x/lsp_signature.nvim'
   use 'tpope/vim-abolish'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-fugitive'
@@ -77,6 +76,7 @@ require('packer').startup(function(use)
         })
       end,
     },
+    'ray-x/lsp_signature.nvim',
     {
       'neovim/nvim-lspconfig',
       config = function() require('setup.lsp') end,

@@ -44,7 +44,7 @@ cmp.setup({
   },
 
   -- Each group is only shown if there are no suggestions from the previous group.
-  sources = cmp.config.sources({
+  sources = cmp.config.sources(
     {
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
@@ -52,8 +52,8 @@ cmp.setup({
     },
     {
       { name = 'buffer', keyword_length = 3 },
-    },
-  }),
+    }
+  ),
 })
 
 require('nvim-autopairs').setup()

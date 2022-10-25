@@ -16,7 +16,7 @@ local lsp_formatting = function()
 end
 
 local on_attach = function(client, bufnr)
-  require('lsp_signature').on_attach()
+  require('lsp_signature').on_attach({ hint_enable = false }, bufnr)
 
   if client.supports_method('textDocument/formatting') then
     vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
