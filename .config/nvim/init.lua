@@ -77,6 +77,7 @@ require('packer').startup(function(use)
         })
       end,
     },
+    { 'j-hui/fidget.nvim', config = function() require('fidget').setup() end },
     'ray-x/lsp_signature.nvim',
     {
       'neovim/nvim-lspconfig',
