@@ -33,6 +33,8 @@ set splitbelow
 
 set completeopt=menu,menuone,noselect
 
+set diffopt+=linematch:50
+
 augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank{higroup="Search", timeout=300}
