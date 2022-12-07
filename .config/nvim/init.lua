@@ -55,8 +55,9 @@ require('packer').startup(function(use)
 
   use {
     'tversteeg/registers.nvim',
-    -- Bug in later version: https://github.com/tversteeg/registers.nvim/issues/74.
-    tag = 'v1.5.0',
+    config = function()
+      require('registers').setup()
+    end,
   }
 
 
