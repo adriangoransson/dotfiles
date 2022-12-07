@@ -12,17 +12,18 @@ require('packer').startup(function(use)
   use 'tpope/vim-sleuth'
   use 'tpope/vim-surround'
 
-  use { 'catppuccin/nvim', as = 'catppuccin' }
-
   use {
-    'cormacrelf/vim-colors-github',
-    config = function()
-      vim.cmd([[
-        set background=light
-        colorscheme github
-        highlight link LspSignatureActiveParameter CursorLine
-      ]])
-    end,
+    'levouh/tint.nvim',
+    {
+      'catppuccin/nvim',
+      as = 'catppuccin',
+    },
+    {
+      'cormacrelf/vim-colors-github',
+      config = function()
+        require('setup.color')
+      end,
+    },
   }
 
   use {
@@ -38,11 +39,6 @@ require('packer').startup(function(use)
         },
       })
     end,
-  }
-
-  use {
-    'levouh/tint.nvim',
-    config = function() require('tint').setup({ tint = -30, saturation = 0.75 }) end,
   }
 
   use {
