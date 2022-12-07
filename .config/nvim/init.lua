@@ -33,7 +33,9 @@ require('packer').startup(function(use)
         input = {
           -- When true, <Esc> will close the modal
           insert_only = false,
-          winblend = 0,
+          win_options = {
+            winblend = 0,
+          },
         },
       })
     end,
