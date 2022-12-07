@@ -18,6 +18,9 @@ end
 local on_attach = function(client, bufnr)
   require('lsp_signature').on_attach({ hint_enable = false }, bufnr)
 
+  -- TODO: check if telescope is available first.
+  local telescope = require('telescope.builtin')
+
   if client.supports_method('textDocument/formatting') then
     vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
     vim.api.nvim_create_autocmd('BufWritePre', {
@@ -35,19 +38,19 @@ local on_attach = function(client, bufnr)
   km('n', 'gD', vim.lsp.buf.declaration)
   km('n', 'gd', vim.lsp.buf.definition)
   km('n', 'K', vim.lsp.buf.hover)
-  km('n', 'gi', vim.lsp.buf.implementation)
+  km('n', 'gi', telescope.lsp_implementations)
   km('i', '<C-k>', vim.lsp.buf.signature_help)
   km('n', '<leader>D', vim.lsp.buf.type_definition)
   km('n', '<leader>rn', vim.lsp.buf.rename)
-  km('n', 'gr', vim.lsp.buf.references)
+  km('n', 'gr', telescope.lsp_references)
   km('n', '<leader>ca', vim.lsp.buf.code_action)
   km('n', '<leader>e', vim.diagnostic.open_float)
   km('n', '[d', vim.diagnostic.goto_prev)
   km('n', ']d', vim.diagnostic.goto_next)
   km('n', '<leader>q', vim.diagnostic.setloclist)
   km('n', '<leader>wq', vim.diagnostic.setqflist)
-  km('n', '<leader>so', require('telescope.builtin').lsp_document_symbols)
-  km('n', '<leader>wso', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+  km('n', '<leader>so', telescope.lsp_document_symbols)
+  km('n', '<leader>wso', telescope.lsp_dynamic_workspace_symbols)
 
   vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format({ async = false }) end, {})
 end
