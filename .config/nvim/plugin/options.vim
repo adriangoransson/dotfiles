@@ -44,3 +44,9 @@ if executable("rg")
   set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ -g\ '!.git/**'
   set grepformat=%f:%l:%c:%m
 endif
+
+set title
+augroup wd_title
+  au!
+  au BufEnter,DirChanged * lua vim.opt.titlestring = 'nvim (' .. require('plugin.workingdir').get(2) .. ')'
+augroup END
