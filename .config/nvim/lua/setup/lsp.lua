@@ -103,6 +103,7 @@ local servers = {
       },
     },
   },
+  svelte = {},
 }
 
 for lsp, settings in pairs(servers) do
