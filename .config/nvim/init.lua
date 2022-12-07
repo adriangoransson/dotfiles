@@ -2,7 +2,6 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'AckslD/nvim-trevJ.lua'
-  use 'L3MON4D3/LuaSnip'
   use 'axelf4/vim-strip-trailing-whitespace'
   use 'habamax/vim-asciidoctor'
   use 'jghauser/mkdir.nvim'
@@ -138,6 +137,7 @@ require('packer').startup(function(use)
 
   -- Completion
   use {
+    'L3MON4D3/LuaSnip',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
