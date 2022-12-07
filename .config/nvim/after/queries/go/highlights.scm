@@ -38,3 +38,5 @@
   left: (expression_list
           (identifier) @spell))
 
+(const_spec
+  name: (identifier) @spell)
