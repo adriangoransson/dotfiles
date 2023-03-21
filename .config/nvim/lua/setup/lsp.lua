@@ -83,7 +83,7 @@ local servers = {
   volar = {},
   tsserver = {},
   pylsp = {},
-  sumneko_lua = {
+  lua_ls = {
     Lua = {
       -- From https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
       -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
