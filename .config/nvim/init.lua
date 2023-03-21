@@ -20,9 +20,7 @@ require('packer').startup(function(use)
     },
     {
       'cormacrelf/vim-colors-github',
-      config = function()
-        require('setup.color')
-      end,
+      config = function() require('setup.color') end,
     },
   }
 
@@ -55,9 +53,7 @@ require('packer').startup(function(use)
 
   use {
     'tversteeg/registers.nvim',
-    config = function()
-      require('registers').setup()
-    end,
+    config = function() require('registers').setup() end,
   }
 
 
@@ -153,9 +149,7 @@ require('packer').startup(function(use)
 
     {
       'hrsh7th/nvim-cmp',
-      config = function()
-        require('setup.completion')
-      end,
+      config = function() require('setup.completion') end,
     },
   }
 end)
