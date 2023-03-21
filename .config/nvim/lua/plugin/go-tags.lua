@@ -27,17 +27,22 @@ local struct_lines = function()
   return start_line + 1, end_line + 1
 end
 
-local add_tag = function(tag_name, transform, args)
+local modify_tags = function(tag_name, transform, args)
   local start_line, end_line = args['line1'], args['line2']
   if (args['count'] == -1) then
     start_line, end_line = struct_lines()
+  end
+
+  local tag_opt = '-add-tags'
+  if args['bang'] then
+    tag_opt = '-remove-tags'
   end
 
   local filename = vim.fn.expand('%:p:gs!\\!/!')
   local cmd = {
     'gomodifytags',
     '-file', filename,
-    '-add-tags', tag_name,
+    tag_opt, tag_name,
     '-transform', transform,
     '-line', start_line .. ',' .. end_line,
     '-format', 'json',
@@ -71,5 +76,5 @@ end
 
 return {
   struct_lines = struct_lines,
-  add_tag = add_tag,
+  modify_tags = modify_tags,
 }
