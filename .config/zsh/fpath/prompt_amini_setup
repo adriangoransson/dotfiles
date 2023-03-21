@@ -1,3 +1,5 @@
+# vim: ft=zsh
+
 # amini theme, derived from gitster
 # https://github.com/zimfw/zimfw/blob/2d1aea3b745ce82364acd9c7f718ac2bcf47a268/modules/prompt/themes/gitster.zsh-theme
 
@@ -117,4 +119,3 @@ prompt_amini_setup() {
 }
 
 prompt_amini_setup "${@}"
-
