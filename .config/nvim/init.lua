@@ -13,6 +13,23 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
 
   use {
+    'stevearc/oil.nvim',
+    config = function()
+      require('oil').setup({
+        keymaps = {
+          ['<C-s>'] = false,
+          ['<C-h>'] = false,
+          ['<C-l>'] = false,
+          ['<C-r>'] = 'actions.refresh',
+        },
+        view_options = {
+          show_hidden = true,
+        },
+      })
+    end,
+  }
+
+  use {
     'levouh/tint.nvim',
     {
       'catppuccin/nvim',
