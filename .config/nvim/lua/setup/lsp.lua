@@ -63,6 +63,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.shellcheck,
 
     null_ls.builtins.formatting.gofumpt.with({ extra_args = { '-extra' } }),
+    null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.prettier,
   },
   on_attach = on_attach,
