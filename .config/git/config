@@ -43,3 +43,6 @@
 [include]
 	# Device-local config file. Silently ignored if missing.
 	path = local
+
+[tag]
+	sort = version:refname
