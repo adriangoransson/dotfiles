@@ -3,7 +3,7 @@ local tint = require('tint')
 local function set_dark_theme()
   vim.cmd([[
     set background=dark
-    colorscheme catppuccin-macchiato
+    colorscheme tokyonight-moon
   ]])
   tint.refresh()
 end

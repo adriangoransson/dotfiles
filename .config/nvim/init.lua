@@ -31,6 +31,8 @@ require('packer').startup(function(use)
 
   use {
     'levouh/tint.nvim',
+    'EdenEast/nightfox.nvim',
+    'folke/tokyonight.nvim',
     {
       'catppuccin/nvim',
       as = 'catppuccin',
