@@ -13,6 +13,8 @@ local function set_light_theme()
     set background=light
     colorscheme github
     highlight link LspSignatureActiveParameter CursorLine
+    highlight link @text.diff.add DiffAdd
+    highlight link @text.diff.delete DiffRemoved
   ]])
   tint.refresh()
 end
