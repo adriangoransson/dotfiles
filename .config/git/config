@@ -22,7 +22,7 @@
 	l = log
 	sh = show
 	rb = rebase
-	rbi = rebase -i
+	rbi = rebase -i --keep-base
 
 [commit]
 	gpgSign = true
