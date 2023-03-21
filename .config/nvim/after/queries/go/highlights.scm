@@ -40,3 +40,6 @@
 
 (const_spec
   name: (identifier) @spell)
+
+(method_spec
+  name: (field_identifier) @spell)
