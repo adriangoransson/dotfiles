@@ -48,4 +48,4 @@
 
 [include]
 	# Device-local config file. Silently ignored if missing.
-	path = local
+	path = config.local
