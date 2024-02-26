@@ -12,8 +12,8 @@
 	ch = checkout
 	pl = pull
 	ph = push
-	f = fetch --tags
-	fa = fetch --all --tags
+	f = fetch
+	fa = fetch --all
 	r = reset
 	rh = reset --hard
 	st = status
