@@ -1,3 +1,5 @@
+# vim: set ft=gitconfig:
+
 [user]
 	name = Adrian Göransson
 	# signingKey = set per device.
