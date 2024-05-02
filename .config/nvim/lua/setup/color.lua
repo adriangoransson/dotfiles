@@ -41,6 +41,9 @@ vim.api.nvim_create_autocmd('Signal', {
 vim.api.nvim_create_user_command('SetSystemTheme', set_system_theme, {})
 vim.api.nvim_create_user_command('SetDarkTheme', set_dark_theme, {})
 vim.api.nvim_create_user_command('SetLightTheme', set_light_theme, {})
+vim.api.nvim_create_user_command('TintToggle', tint.toggle, {})
+vim.api.nvim_create_user_command('TintEnable', tint.enable, {})
+vim.api.nvim_create_user_command('TintDisable', tint.disable, {})
 
 -- Run on first source
 set_system_theme()
