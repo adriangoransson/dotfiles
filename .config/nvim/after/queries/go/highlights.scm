@@ -41,5 +41,5 @@
 (const_spec
   name: (identifier) @spell)
 
-(method_spec
+(method_elem
   name: (field_identifier) @spell)
