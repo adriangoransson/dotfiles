@@ -80,10 +80,13 @@ local servers = {
     },
   },
   bashls = {},
+  clangd = {},
   eslint = {},
   volar = {},
   tsserver = {},
   pylsp = {},
+  html = {},
+  cssls = {},
   lua_ls = {
     Lua = {
       -- From https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
