@@ -75,6 +75,7 @@ local servers = {
       staticcheck = true,
       analyses = {
         unusedwrite = true,
+        composites = false,
       },
     },
   },
