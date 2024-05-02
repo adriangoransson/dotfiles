@@ -1,9 +1,5 @@
 let mapleader="\<Space>"
 
-" <esc> mapped elsewhere, use it.
-map <c-c> <nop>
-imap <c-c> <nop>
-
 " Caps + Ö with svorak and xkb ctrl:nocaps
 nmap <c-s> :w<cr>
 
