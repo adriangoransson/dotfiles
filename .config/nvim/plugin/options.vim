@@ -13,7 +13,7 @@ set undofile
 set noswapfile
 
 set list
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set listchars=tab:➝\ ,trail:·,multispace:·,extends:>,precedes:<,nbsp:+
 set hidden
 set termguicolors
 set cursorline
