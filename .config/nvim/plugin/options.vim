@@ -49,4 +49,9 @@ set title
 augroup wd_title
   au!
   au BufEnter,DirChanged * lua vim.opt.titlestring = 'nvim (' .. require('plugin.workingdir').get(2) .. ')'
+
+  " Reset the title on suspend/resume. Otherwise the terminal title may be
+  " only "fg".
+  au VimSuspend * set notitle
+  au VimResume * set title
 augroup END
