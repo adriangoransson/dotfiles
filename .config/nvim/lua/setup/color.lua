@@ -32,8 +32,9 @@ end
 
 local augroup = vim.api.nvim_create_augroup('colorscheme_event_listener', {})
 vim.api.nvim_clear_autocmds({ group = augroup })
-vim.api.nvim_create_autocmd('Signal SIGUSR1', {
+vim.api.nvim_create_autocmd('Signal', {
   group = augroup,
+  pattern = 'SIGUSR1',
   callback = set_system_theme,
 })
 
