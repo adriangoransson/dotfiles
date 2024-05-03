@@ -17,5 +17,6 @@ require('lazy').setup('plugins', {
   checker = {
     enabled = true,
     notify = false,
+    frequency = 28800, -- Every 8 hours.
   },
 })
