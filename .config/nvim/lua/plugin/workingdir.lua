@@ -8,23 +8,23 @@ local M = {}
 local modify = vim.fn.fnamemodify
 
 M.get = function(depth)
-  local dir = modify(vim.fn.getcwd(), ':~')
+	local dir = modify(vim.fn.getcwd(), ":~")
 
-  if string.sub(dir, 1, 1) ~= '~' then
-    return dir
-  end
+	if string.sub(dir, 1, 1) ~= "~" then
+		return dir
+	end
 
-  local modifier = string.rep(':h', depth)
-  local parent = modify(dir, modifier)
-  if parent == '.' then
-    -- nothing to truncate.
-    return dir
-  end
+	local modifier = string.rep(":h", depth)
+	local parent = modify(dir, modifier)
+	if parent == "." then
+		-- nothing to truncate.
+		return dir
+	end
 
-  -- Return the current directory
-  -- -> starting at length of parent (+1 because 1-indexing)
-  -- -> with leading '/' removed if it exists.
-  return dir:sub(#parent + 1):gsub('^/', '')
+	-- Return the current directory
+	-- -> starting at length of parent (+1 because 1-indexing)
+	-- -> with leading '/' removed if it exists.
+	return dir:sub(#parent + 1):gsub("^/", "")
 end
 
 return M

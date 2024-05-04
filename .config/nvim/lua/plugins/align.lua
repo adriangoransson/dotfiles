@@ -1,6 +1,3 @@
 return {
-  {
-    'echasnovski/mini.align',
-    config = true,
-  },
+	{ "echasnovski/mini.align", opts = {} },
 }

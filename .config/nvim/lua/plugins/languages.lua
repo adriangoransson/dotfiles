@@ -1,3 +1,3 @@
 return {
-  'habamax/vim-asciidoctor',
+	"habamax/vim-asciidoctor",
 }

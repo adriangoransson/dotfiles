@@ -1,66 +1,68 @@
 local format_opts = {
-  timeout_ms = 500,
-  lsp_fallback = true,
+	timeout_ms = 500,
+	lsp_fallback = true,
 }
 
 return {
-  'stevearc/conform.nvim',
+	"stevearc/conform.nvim",
 
-  config = function()
-    local js_formatters = { { 'prettierd' }, { 'prettier' } }
+	config = function()
+		local js_formatters = { { "prettierd" }, { "prettier" } }
 
-    require('conform').setup({
-      format_on_save = format_opts,
+		require("conform").setup({
+			format_on_save = format_opts,
 
-      formatters_by_ft = {
-        typescript = js_formatters,
-        javascript = js_formatters,
-        javascriptreact = js_formatters,
-        svelte = js_formatters,
-        vue = js_formatters,
+			formatters_by_ft = {
+				lua = { "stylua" },
 
-        markdown = { 'mdformat' },
-        terraform = { 'terraform_fmt' },
-        go = { 'golines', 'goimports', 'gofumpt' },
+				typescript = js_formatters,
+				javascript = js_formatters,
+				javascriptreact = js_formatters,
+				svelte = js_formatters,
+				vue = js_formatters,
 
-        ['_'] = { 'use_lsp', 'trim_whitespace' },
-      },
+				markdown = { "mdformat" },
+				terraform = { "terraform_fmt" },
+				go = { "golines", "goimports", "gofumpt" },
 
-      formatters = {
-        golines = {
-          prepend_args = { '--base-formatter=gofmt' }, -- Slow with its default formatter! :(
-        },
+				["_"] = { "use_lsp", "trim_whitespace" },
+			},
 
-        gofumpt = {
-          prepend_args = { '-extra' },
-        },
+			formatters = {
+				golines = {
+					prepend_args = { "--base-formatter=gofmt" }, -- Slow with its default formatter! :(
+				},
 
-        -- no-op formatter for use with lsp_fallback.
-        use_lsp = {
-          command = '',
-          condition = function()
-            return false
-          end,
-        },
-      },
-    })
+				gofumpt = {
+					prepend_args = { "-extra" },
+				},
 
-    vim.api.nvim_create_user_command('Format', function(args)
-      local range = nil
-      if args.count ~= -1 then
-        local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-        range = {
-          start = { args.line1, 0 },
-          ['end'] = { args.line2, end_line:len() },
-        }
-      end
+				-- no-op formatter for use with lsp_fallback.
+				use_lsp = {
+					command = "",
+					condition = function()
+						return false
+					end,
+				},
+			},
+		})
 
-      local opts = vim.tbl_extend('force', format_opts, { range = range })
-      require('conform').format(opts)
-    end, { range = true })
-  end,
+		vim.api.nvim_create_user_command("Format", function(args)
+			local range = nil
+			if args.count ~= -1 then
+				local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+				range = {
+					start = { args.line1, 0 },
+					["end"] = { args.line2, end_line:len() },
+				}
+			end
 
-  init = function()
-    vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
-  end,
+			local opts = vim.tbl_extend("force", format_opts, { range = range })
+			require("conform").format(opts)
+		end, { range = true })
+	end,
+
+	init = function()
+		vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
+	end,
 }
