@@ -15,6 +15,10 @@ return {
 				"williamboman/mason-lspconfig.nvim",
 				opts = { automatic_installation = true },
 			},
+			{
+				"folke/neodev.nvim",
+				opts = {},
+			},
 		},
 
 		config = function()
