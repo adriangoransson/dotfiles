@@ -1,27 +1,31 @@
 return {
 	{
+		"ray-x/lsp_signature.nvim",
+		opts = { hint_enable = false },
+	},
+
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+	},
+
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"ray-x/lsp_signature.nvim",
-			{ "j-hui/fidget.nvim", opts = {} },
+			{
+				"williamboman/mason.nvim",
+				opts = {},
+			},
 			{
 				"williamboman/mason-lspconfig.nvim",
-				dependencies = {
-					{ "williamboman/mason.nvim", opts = {} },
-				},
-
-				opts = {
-					automatic_installation = true,
-				},
+				opts = { automatic_installation = true },
 			},
 		},
 
 		config = function()
 			local lspconfig = require("lspconfig")
 
-			local on_attach = function(client, bufnr)
-				require("lsp_signature").on_attach({ hint_enable = false }, bufnr)
-
+			local on_attach = function(_, bufnr)
 				-- TODO: check if telescope is available first.
 				local telescope = require("telescope.builtin")
 
