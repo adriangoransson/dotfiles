@@ -1,10 +1,5 @@
 return {
   {
-    'nvimtools/none-ls.nvim',
-    dependencies = 'nvim-lua/plenary.nvim',
-  },
-
-  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'ray-x/lsp_signature.nvim',
@@ -24,35 +19,11 @@ return {
     config = function()
       local lspconfig = require('lspconfig')
 
-      local format_augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-      local lsp_formatting = function()
-        local ignored_clients = {
-          gopls = true,    -- gofumpt via null-ls.
-          tsserver = true, -- prettier via null-ls.
-          volar = true,    -- prettier via null-ls.
-        }
-
-        vim.lsp.buf.format({
-          filter = function(client)
-            return ignored_clients[client.name] == nil
-          end,
-        })
-      end
-
       local on_attach = function(client, bufnr)
         require('lsp_signature').on_attach({ hint_enable = false }, bufnr)
 
         -- TODO: check if telescope is available first.
         local telescope = require('telescope.builtin')
-
-        if client.supports_method('textDocument/formatting') then
-          vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            group = format_augroup,
-            buffer = bufnr,
-            callback = lsp_formatting,
-          })
-        end
 
         local opts = { noremap = true, silent = true, buffer = bufnr }
         local km = function(mode, lhs, rhs)
@@ -75,24 +46,7 @@ return {
         km('n', '<leader>wq', vim.diagnostic.setqflist)
         km('n', '<leader>so', telescope.lsp_document_symbols)
         km('n', '<leader>wso', telescope.lsp_dynamic_workspace_symbols)
-
-        vim.api.nvim_create_user_command('Format', function()
-          vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
-        end, {})
       end
-
-      local null_ls = require('null-ls')
-      null_ls.setup({
-        sources = {
-          -- redundancy :(
-          null_ls.builtins.formatting.golines.with({ extra_args = { '--base-formatter=gofumpt' } }), -- Slow with default formatter! :(
-          null_ls.builtins.formatting.goimports,
-          null_ls.builtins.formatting.gofumpt.with({ extra_args = { '-extra' } }),
-
-          null_ls.builtins.formatting.prettier,
-        },
-        on_attach = on_attach,
-      })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
