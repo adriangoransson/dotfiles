@@ -34,4 +34,6 @@ return {
 	},
 
 	{ "echasnovski/mini.notify", opts = {} },
+
+	{ "RRethy/vim-illuminate" },
 }
