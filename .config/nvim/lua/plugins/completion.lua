@@ -1,5 +1,16 @@
 return {
 	{
+		"windwp/nvim-autopairs",
+		dependencies = {
+			"hrsh7th/nvim-cmp",
+		},
+
+		event = "InsertEnter",
+
+		opts = {},
+	},
+
+	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
@@ -10,7 +21,7 @@ return {
 			"windwp/nvim-autopairs",
 		},
 
-		event = "VeryLazy",
+		event = "InsertEnter",
 
 		config = function()
 			local cmp = require("cmp")
@@ -33,9 +44,8 @@ return {
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.close(),
 
-					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-					}),
+					["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
+					["<S-CR>"] = cmp.mapping.confirm(),
 
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
@@ -50,7 +60,7 @@ return {
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
+						elseif luasnip.expand_or_locally_jumpable(-1) then
 							luasnip.jump(-1)
 						else
 							fallback()
@@ -68,7 +78,6 @@ return {
 				}),
 			})
 
-			require("nvim-autopairs").setup()
 			cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 		end,
 	},
