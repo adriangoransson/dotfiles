@@ -60,17 +60,11 @@ return {
 			local ts = require("telescope")
 
 			ts.setup({
-				defaults = {
-					mappings = {
-						i = {
-							["<C-c>"] = false,
-						},
-					},
-				},
 				pickers = {
 					find_files = {
 						find_command = finder(),
 					},
+
 					buffers = {
 						mappings = {
 							n = {
@@ -79,10 +73,10 @@ return {
 						},
 					},
 				},
-
-				-- This will load fzy_native and have it override the default file sorter
-				ts.load_extension("zf-native"),
 			})
+
+			-- Override the default file sorter.
+			ts.load_extension("zf-native")
 		end,
 	},
 }
