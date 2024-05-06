@@ -21,6 +21,7 @@ return {
 				svelte = js_formatters,
 				vue = js_formatters,
 
+				json = { "jq" },
 				markdown = { "mdformat" },
 				terraform = { "terraform_fmt" },
 				go = { "golines", "goimports", "gofumpt" },
