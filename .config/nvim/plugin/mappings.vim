@@ -15,3 +15,6 @@ nnoremap <silent><c-l> <c-w>l
 
 map <silent> [c :cprev<cr>
 map <silent> ]c :cnext<cr>
+
+" Exit Terminal mode with 2x Escape.
+tnoremap <Esc><Esc> <C-\><C-n>
