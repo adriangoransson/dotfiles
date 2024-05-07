@@ -35,5 +35,15 @@ return {
 
 	{ "echasnovski/mini.notify", opts = {} },
 
-	{ "RRethy/vim-illuminate" },
+	{
+		"RRethy/vim-illuminate",
+		config = function()
+			require("illuminate").configure({
+				filetypes_denylist = {
+					"fugitive",
+					"TelescopePrompt",
+				},
+			})
+		end,
+	},
 }
