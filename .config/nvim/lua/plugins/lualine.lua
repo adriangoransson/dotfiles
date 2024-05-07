@@ -29,7 +29,12 @@ return {
 				lualine_z = { "location" },
 			},
 
-			extensions = { "fugitive", "lazy", "mason", "quickfix" },
+			extensions = {
+				"fugitive",
+				"lazy",
+				"mason",
+				"quickfix",
+			},
 		},
 
 		dependencies = { "nvim-tree/nvim-web-devicons" },
