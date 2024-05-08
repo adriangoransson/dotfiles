@@ -1,3 +1,5 @@
+" (Neo)vim global mappings.
+
 let mapleader="\<Space>"
 
 " Caps + Ö with svorak and xkb ctrl:nocaps

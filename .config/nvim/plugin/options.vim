@@ -1,3 +1,5 @@
+" (Neo)vim options.
+
 set number
 set relativenumber
 
@@ -22,7 +24,6 @@ set colorcolumn=+1
 set nowrap
 
 set nojoinspaces
-set inccommand=split
 
 set mouse+=a
 
@@ -33,25 +34,7 @@ set splitbelow
 
 set completeopt=menu,menuone,noselect
 
-set diffopt+=linematch:50
-
-augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="Search", timeout=300}
-augroup END
-
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ -g\ '!.git/**'
   set grepformat=%f:%l:%c:%m
 endif
-
-set title
-augroup wd_title
-  au!
-  au BufEnter,DirChanged * lua vim.opt.titlestring = 'nvim (' .. require('plugin.workingdir').get(2) .. ')'
-
-  " Reset the title on suspend/resume. Otherwise the terminal title may be
-  " only "fg".
-  au VimSuspend * set notitle
-  au VimResume * set title
-augroup END
