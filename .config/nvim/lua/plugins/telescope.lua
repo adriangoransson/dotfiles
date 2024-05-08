@@ -47,8 +47,10 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
-			"nvim-lua/plenary.nvim",
 			"natecraddock/telescope-zf-native.nvim",
+			"nvim-lua/plenary.nvim",
+
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 
 		keys = {
@@ -73,9 +75,21 @@ return {
 						},
 					},
 				},
+
+				extensions = {
+					fzf = {
+						override_file_sorter = false,
+					},
+
+					["zf-native"] = {
+						generic = {
+							enable = false,
+						},
+					},
+				},
 			})
 
-			-- Override the default file sorter.
+			ts.load_extension("fzf")
 			ts.load_extension("zf-native")
 		end,
 	},
