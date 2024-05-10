@@ -4,6 +4,7 @@
 	name = Adrian Göransson
 	# signingKey = set per device.
 	# email = set per project.
+	useConfigOnly = true
 
 [gpg]
 	format = ssh
