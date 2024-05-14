@@ -13,18 +13,17 @@ return {
 			format_on_save = format_opts,
 
 			formatters_by_ft = {
-				lua = { "stylua" },
-
-				typescript = prettier,
 				javascript = prettier,
 				javascriptreact = prettier,
-				svelte = prettier,
-				vue = prettier,
 				markdown = prettier,
+				svelte = prettier,
+				typescript = prettier,
+				vue = prettier,
 
-				json = { "jq" },
-				terraform = { "terraform_fmt" },
 				go = { "golines", "goimports", "gofumpt" },
+				json = { "jq" },
+				lua = { "stylua" },
+				terraform = { "terraform_fmt" },
 
 				["_"] = { "use_lsp", "trim_whitespace" },
 			},
