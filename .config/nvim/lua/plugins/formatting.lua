@@ -7,7 +7,7 @@ return {
 	"stevearc/conform.nvim",
 
 	config = function()
-		local js_formatters = { { "prettierd" }, { "prettier" } }
+		local prettier = { { "prettierd" }, { "prettier" } }
 
 		require("conform").setup({
 			format_on_save = format_opts,
@@ -15,14 +15,14 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 
-				typescript = js_formatters,
-				javascript = js_formatters,
-				javascriptreact = js_formatters,
-				svelte = js_formatters,
-				vue = js_formatters,
+				typescript = prettier,
+				javascript = prettier,
+				javascriptreact = prettier,
+				svelte = prettier,
+				vue = prettier,
+				markdown = prettier,
 
 				json = { "jq" },
-				markdown = { "mdformat" },
 				terraform = { "terraform_fmt" },
 				go = { "golines", "goimports", "gofumpt" },
 
