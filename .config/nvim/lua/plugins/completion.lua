@@ -90,7 +90,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "path" },
 				}, {
-					{ name = "buffer", keyword_length = 3 },
+					{ name = "buffer", keyword_length = 3, option = { keyword_pattern = [[\k\+]] } },
 				}),
 			})
 
