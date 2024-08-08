@@ -24,8 +24,6 @@ return {
 		event = "VeryLazy",
 		opts = {
 			input = {
-				-- When true, <Esc> will close the modal
-				insert_only = false,
 				win_options = {
 					winblend = 0,
 				},
