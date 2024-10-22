@@ -3,9 +3,7 @@ return {
 		"cormacrelf/vim-colors-github",
 		lazy = false,
 		dependencies = {
-			{ "catppuccin/nvim", name = "catppuccin" },
 			"levouh/tint.nvim",
-			"EdenEast/nightfox.nvim",
 			"folke/tokyonight.nvim",
 		},
 
