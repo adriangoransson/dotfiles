@@ -55,6 +55,12 @@ return {
 				map("n", "<leader>wq", vim.diagnostic.setqflist)
 				map("n", "<leader>so", telescope.lsp_document_symbols)
 				map("n", "<leader>wso", telescope.lsp_dynamic_workspace_symbols)
+
+				vim.api.nvim_create_user_command("InlayHintsToggle", function()
+					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+				end, {})
+
+				vim.lsp.inlay_hint.enable(true)
 			end
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
