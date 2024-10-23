@@ -30,6 +30,8 @@ return {
 					highlight Whitespace guifg=#d7d7d7 " Softer color for listchars.
 					highlight link LspInlayHint Comment
 					highlight link Label NONE
+					highlight link @punctuation.delimiter Delimiter
+					highlight link @punctuation.bracket Delimiter
 					highlight Label guifg=#116329
 					highlight String guifg=#0a3069
 				]])
