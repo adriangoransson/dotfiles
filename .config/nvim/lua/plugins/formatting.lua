@@ -1,16 +1,16 @@
-local format_opts = {
-	timeout_ms = 500,
-	lsp_fallback = true,
-}
-
 return {
 	"stevearc/conform.nvim",
 
 	config = function()
-		local prettier = { { "prettierd" }, { "prettier" } }
+		local prettier = { "prettierd", "prettier", stop_after_first = true }
 
 		require("conform").setup({
-			format_on_save = format_opts,
+			default_format_opts = {
+				timeout_ms = 1000,
+				lsp_format = "fallback",
+			},
+
+			format_on_save = {},
 
 			formatters_by_ft = {
 				javascript = prettier,
@@ -19,11 +19,14 @@ return {
 				svelte = prettier,
 				typescript = prettier,
 				vue = prettier,
+				yaml = prettier,
 
 				go = { "golines", "goimports", "gofumpt" },
 				json = { "jq" },
 				lua = { "stylua" },
 				terraform = { "terraform_fmt" },
+
+				sh = { "trim_whitespace" },
 
 				["_"] = { "use_lsp", "trim_whitespace" },
 			},
@@ -37,7 +40,7 @@ return {
 					prepend_args = { "-extra" },
 				},
 
-				-- no-op formatter for use with lsp_fallback.
+				-- no-op formatter for use with lsp_format = fallback.
 				use_lsp = {
 					command = "",
 					condition = function()
@@ -57,8 +60,10 @@ return {
 				}
 			end
 
-			local opts = vim.tbl_extend("force", format_opts, { range = range })
-			require("conform").format(opts)
+			require("conform").format({
+				timeout_ms = 2000,
+				range = range,
+			})
 		end, { range = true })
 	end,
 
