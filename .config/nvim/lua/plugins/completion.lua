@@ -86,6 +86,10 @@ return {
 
 				-- Each group is only shown if there are no suggestions from the previous group.
 				sources = cmp.config.sources({
+					{
+						name = "lazydev",
+						group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+					},
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
