@@ -19,4 +19,8 @@ require("lazy").setup("plugins", {
 		notify = false,
 		frequency = 28800, -- Every 8 hours.
 	},
+
+	rocks = {
+		enabled = false,
+	},
 })
