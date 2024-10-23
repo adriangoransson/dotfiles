@@ -26,6 +26,7 @@ return {
 							"cssls",
 							"gopls",
 							"html",
+							"lua_ls",
 							"rust_analyzer",
 							"svelte",
 							"ts_ls",
