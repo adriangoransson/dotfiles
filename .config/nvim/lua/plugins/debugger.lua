@@ -19,7 +19,11 @@ return {
 			map("n", "<Leader>dl", dap.run_last)
 
 			map("n", "<Leader>lp", function()
-				dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+				vim.ui.input({ prompt = "Log point message: " }, function(input)
+					if input then
+						dap.set_breakpoint(nil, nil, input)
+					end
+				end)
 			end)
 
 			map("n", "<Leader>df", function()
