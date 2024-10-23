@@ -13,6 +13,11 @@ return {
 			},
 			{
 				"williamboman/mason-lspconfig.nvim",
+
+				dependencies = {
+					"hrsh7th/cmp-nvim-lsp",
+				},
+
 				config = function()
 					local c = require("mason-lspconfig")
 
@@ -27,54 +32,64 @@ return {
 						},
 					})
 
+					local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+					default_capabilities = vim.tbl_deep_extend(
+						"force",
+						default_capabilities,
+						require("cmp_nvim_lsp").default_capabilities()
+					)
+
+					local setup_server = function(name, settings, capabilities)
+						require("lspconfig")[name].setup({
+							capabilities = capabilities or default_capabilities,
+							settings = settings,
+						})
+					end
+
 					c.setup_handlers({
 						-- First entry (without a key) is the default handler.
-						function(server_name) -- default handler (optional)
-							require("lspconfig")[server_name].setup({})
+						function(server_name)
+							setup_server(server_name, {})
 						end,
 
 						["gopls"] = function()
-							require("lspconfig")["gopls"].setup({
-								settings = {
-									gopls = {
-										staticcheck = true,
-										analyses = {
-											unusedwrite = true,
-											composites = false,
-										},
-										hints = {
-											assignVariableTypes = true,
-											compositeLiteralFields = true,
-											compositeLiteralTypes = true,
-											constantValues = true,
-											parameterNames = true,
-											rangeVariableTypes = true,
-										},
+							setup_server("gopls", {
+								gopls = {
+									staticcheck = true,
+									analyses = {
+										unusedwrite = true,
+										composites = false,
+									},
+									hints = {
+										assignVariableTypes = true,
+										compositeLiteralFields = true,
+										compositeLiteralTypes = true,
+										constantValues = true,
+										parameterNames = true,
+										rangeVariableTypes = true,
 									},
 								},
 							})
 						end,
 
 						["lua_ls"] = function()
-							require("lspconfig")["lua_ls"].setup({
-								settings = {
-									Lua = {
-										-- From https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
-										-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-										runtime = { version = "LuaJIT" },
-										-- Get the language server to recognize the `vim` global
-										diagnostics = { globals = { "vim" } },
-										-- Make the server aware of Neovim runtime files
-										workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-										-- Do not send telemetry data containing a randomized but unique identifier
-										telemetry = { enable = false },
+							setup_server("lua_ls", {
+								Lua = {
+									-- From https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
+									-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+									runtime = { version = "LuaJIT" },
+									-- Get the language server to recognize the `vim` global
+									diagnostics = { globals = { "vim" } },
+									-- Make the server aware of Neovim runtime files
+									workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+									-- Do not send telemetry data containing a randomized but unique identifier
+									telemetry = { enable = false },
 
-										-- Trailing commas.
-										format = {
-											defaultConfig = {
-												quote_style = "single",
-												trailing_table_separator = "smart",
-											},
+									-- Trailing commas.
+									format = {
+										defaultConfig = {
+											quote_style = "single",
+											trailing_table_separator = "smart",
 										},
 									},
 								},
@@ -82,12 +97,10 @@ return {
 						end,
 
 						["rust_analyzer"] = function()
-							require("lspconfig")["rust_analyzer"].setup({
-								settings = {
-									["rust-analyzer"] = {
-										check = {
-											command = "clippy",
-										},
+							setup_server("rust_analyzer", {
+								["rust-analyzer"] = {
+									check = {
+										command = "clippy",
 									},
 								},
 							})
