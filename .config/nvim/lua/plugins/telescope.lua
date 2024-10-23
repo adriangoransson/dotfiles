@@ -58,6 +58,8 @@ return {
 			{ "<leader>b", ":Telescope buffers<cr>", silent = true },
 		},
 
+		event = "VeryLazy",
+
 		config = function()
 			local ts = require("telescope")
 
