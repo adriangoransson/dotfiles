@@ -52,8 +52,8 @@ return {
 							setup_server(server_name, {})
 						end,
 
-						["gopls"] = function()
-							setup_server("gopls", {
+						["gopls"] = function(name)
+							setup_server(name, {
 								gopls = {
 									staticcheck = true,
 									analyses = {
@@ -72,8 +72,8 @@ return {
 							})
 						end,
 
-						["lua_ls"] = function()
-							setup_server("lua_ls", {
+						["lua_ls"] = function(name)
+							setup_server(name, {
 								Lua = {
 									-- From https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
 									-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
@@ -96,8 +96,8 @@ return {
 							})
 						end,
 
-						["rust_analyzer"] = function()
-							setup_server("rust_analyzer", {
+						["rust_analyzer"] = function(name)
+							setup_server(name, {
 								["rust-analyzer"] = {
 									check = {
 										command = "clippy",
