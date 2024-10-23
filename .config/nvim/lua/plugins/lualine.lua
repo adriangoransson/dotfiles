@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-lualine/lualine.nvim",
+
 		opts = {
 			options = {
 				component_separators = "|",
@@ -37,6 +38,12 @@ return {
 				"toggleterm",
 			},
 		},
+
+		config = function(_, opts)
+			require("lualine").setup(opts)
+
+			vim.o.showmode = false
+		end,
 
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
