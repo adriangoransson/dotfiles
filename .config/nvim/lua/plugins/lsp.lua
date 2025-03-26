@@ -1,10 +1,5 @@
 return {
 	{
-		"ray-x/lsp_signature.nvim",
-		opts = { hint_enable = false },
-	},
-
-	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			{
@@ -14,9 +9,7 @@ return {
 			{
 				"williamboman/mason-lspconfig.nvim",
 
-				dependencies = {
-					"hrsh7th/cmp-nvim-lsp",
-				},
+				dependencies = { "saghen/blink.cmp" },
 
 				config = function()
 					local c = require("mason-lspconfig")
@@ -33,16 +26,9 @@ return {
 						},
 					})
 
-					local default_capabilities = vim.lsp.protocol.make_client_capabilities()
-					default_capabilities = vim.tbl_deep_extend(
-						"force",
-						default_capabilities,
-						require("cmp_nvim_lsp").default_capabilities()
-					)
-
 					local setup_server = function(name, settings, capabilities)
 						require("lspconfig")[name].setup({
-							capabilities = capabilities or default_capabilities,
+							capabilities = require("blink.cmp").get_lsp_capabilities(capabilities),
 							settings = settings,
 						})
 					end
@@ -109,18 +95,7 @@ return {
 					})
 				end,
 			},
-			{
-				"folke/lazydev.nvim",
-				ft = "lua", -- only load on lua files
-				opts = {
-					library = {
-						{ path = "luvit-meta/library", words = { "vim%.uv" } },
-					},
-				},
-			},
-			{ "Bilal2453/luvit-meta", lazy = true },
 		},
-
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
