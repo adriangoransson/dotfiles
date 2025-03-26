@@ -1,0 +1,13 @@
+copy-on-select = clipboard
+
+# Disable font ligatures.
+font-feature = -calt
+
+font-size = 14
+
+macos-titlebar-style = tabs
+
+theme = Dracula
+
+# https://github.com/ghostty-org/ghostty/issues/1392
+window-inherit-working-directory = false
