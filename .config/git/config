@@ -49,6 +49,9 @@
 [branch]
 	sort = -committerdate
 
+[merge]
+	conflictStyle = zdiff3
+
 [include]
 	# Device-local config file. Silently ignored if missing.
 	path = config.local
