@@ -52,6 +52,9 @@
 [merge]
 	conflictStyle = zdiff3
 
+[diff]
+	algorithm = histogram
+
 [include]
 	# Device-local config file. Silently ignored if missing.
 	path = config.local
