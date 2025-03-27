@@ -19,18 +19,6 @@ return {
 		opts = {},
 	},
 
-	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
-		opts = {
-			input = {
-				win_options = {
-					winblend = 0,
-				},
-			},
-		},
-	},
-
 	{ "echasnovski/mini.notify", opts = {} },
 
 	{
