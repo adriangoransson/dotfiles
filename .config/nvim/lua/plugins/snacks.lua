@@ -1,3 +1,8 @@
+local files_args = {}
+if vim.fn.executable("fd") or vim.fn.executable("rg") then
+	files_args = { "--no-ignore-vcs" }
+end
+
 return {
 	"folke/snacks.nvim",
 	---@type snacks.Config
@@ -10,9 +15,15 @@ return {
 			"<leader>p",
 			function()
 				Snacks.picker.smart({
+					multi = {
+						{ source = "files", args = files_args },
+						"buffers",
+						"recent",
+					},
 					filter = {
 						cwd = true,
 					},
+					hidden = true,
 				})
 			end,
 		},
