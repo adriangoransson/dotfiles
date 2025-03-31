@@ -28,6 +28,10 @@ require("lazy").setup({
 		frequency = 28800, -- Every 8 hours.
 	},
 
+	change_detection = {
+		notify = false,
+	},
+
 	rocks = {
 		enabled = false,
 	},
