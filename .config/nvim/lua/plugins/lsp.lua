@@ -140,6 +140,17 @@ return {
 					map("n", "<leader>wso", workspace_symbols)
 				end,
 			})
+
+			local defaults_since_v0_11 = {
+				{ "n", "gri" },
+				{ "n", "grr" },
+				{ { "x", "n" }, "gra" },
+				{ "n", "grn" },
+			}
+
+			for _, mapping in ipairs(defaults_since_v0_11) do
+				vim.keymap.del(mapping[1], mapping[2])
+			end
 		end,
 	},
 }
