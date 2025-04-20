@@ -16,7 +16,7 @@ return {
 				vue = prettier,
 				yaml = prettier,
 
-				go = { "golines", "goimports", "gofumpt" },
+				go = { "gofumpt", "goimports", "golines", lsp_format = "first" },
 				json = { "jq" },
 				lua = { "stylua" },
 				terraform = { "terraform_fmt" },
