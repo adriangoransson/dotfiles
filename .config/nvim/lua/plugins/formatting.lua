@@ -5,11 +5,6 @@ return {
 		local prettier = { "prettierd", "prettier", stop_after_first = true }
 
 		require("conform").setup({
-			default_format_opts = {
-				timeout_ms = 1000,
-				lsp_format = "fallback",
-			},
-
 			format_on_save = {},
 
 			formatters_by_ft = {
@@ -26,9 +21,7 @@ return {
 				lua = { "stylua" },
 				terraform = { "terraform_fmt" },
 
-				sh = { "trim_whitespace" },
-
-				["_"] = { "use_lsp", "trim_whitespace" },
+				["_"] = { "trim_whitespace", lsp_format = "prefer" },
 			},
 
 			formatters = {
@@ -38,14 +31,6 @@ return {
 
 				gofumpt = {
 					prepend_args = { "-extra" },
-				},
-
-				-- no-op formatter for use with lsp_format = fallback.
-				use_lsp = {
-					command = "",
-					condition = function()
-						return false
-					end,
 				},
 			},
 		})
