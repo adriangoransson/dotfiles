@@ -60,6 +60,10 @@ return {
 					},
 				},
 			},
+
+			cmdline = {
+				enabled = false,
+			},
 		},
 	},
 
