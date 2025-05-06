@@ -10,7 +10,7 @@ return {
 			formatters_by_ft = {
 				javascript = prettier,
 				javascriptreact = prettier,
-				markdown = prettier,
+				markdown = { "injected", "prettier" },
 				svelte = prettier,
 				typescript = prettier,
 				vue = prettier,
