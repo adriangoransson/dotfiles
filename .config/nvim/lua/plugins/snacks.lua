@@ -9,7 +9,15 @@ return {
 	priority = 1000,
 	---@type snacks.Config
 	opts = {
-		input = {},
+		input = {
+			icon_pos = false,
+			win = {
+				relative = "cursor",
+				row = -3,
+				col = -2,
+				width = 30,
+			},
+		},
 		picker = {},
 	},
 	keys = {
