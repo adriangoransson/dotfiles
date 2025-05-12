@@ -20,3 +20,10 @@ map <silent> ]c :cnext<cr>
 
 " Exit Terminal mode with 2x Escape.
 tnoremap <Esc><Esc> <C-\><C-n>
+
+" LSP defaults since 0.11.
+nunmap gri
+nunmap grr
+nunmap gra
+xunmap gra
+nunmap grn
