@@ -54,7 +54,7 @@ local modify_tags = function(tag_name, transform, args)
 		"-skip-unexported",
 	}
 
-	local modified = vim.api.nvim_buf_get_option(0, "modified")
+	local modified = vim.api.nvim_get_option_value("modified", { buf = 0 })
 	if modified then
 		table.insert(cmd, "-modified")
 	end
