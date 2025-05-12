@@ -132,8 +132,6 @@ return {
 					map("n", "gr", references)
 					map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
 					map("n", "<leader>e", vim.diagnostic.open_float)
-					map("n", "[d", vim.diagnostic.goto_prev)
-					map("n", "]d", vim.diagnostic.goto_next)
 					map("n", "<leader>q", vim.diagnostic.setloclist)
 					map("n", "<leader>wq", vim.diagnostic.setqflist)
 					map("n", "<leader>so", document_symbols)
