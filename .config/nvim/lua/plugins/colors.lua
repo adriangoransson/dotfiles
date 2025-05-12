@@ -1,3 +1,5 @@
+local augroup = require("util").augroup
+
 return {
 	{
 		"cormacrelf/vim-colors-github",
@@ -49,13 +51,9 @@ return {
 				end
 			end
 
-			local augroup = vim.api.nvim_create_augroup("colorscheme_event_listener", {})
-			vim.api.nvim_clear_autocmds({ group = augroup })
-			vim.api.nvim_create_autocmd("Signal", {
-				group = augroup,
-				pattern = "SIGUSR1",
-				callback = set_system_theme,
-			})
+			augroup("colorscheme_event_listener", function(au)
+				au("Signal", "SIGUSR1", set_system_theme)
+			end)
 
 			vim.api.nvim_create_user_command("SetSystemTheme", set_system_theme, {})
 			vim.api.nvim_create_user_command("SetDarkTheme", set_dark_theme, {})
