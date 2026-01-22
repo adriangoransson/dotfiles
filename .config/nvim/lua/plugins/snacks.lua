@@ -56,5 +56,12 @@ return {
 				Snacks.picker.recent()
 			end,
 		},
+
+		{
+			"<leader>/",
+			function()
+				Snacks.picker.grep()
+			end,
+		},
 	},
 }
