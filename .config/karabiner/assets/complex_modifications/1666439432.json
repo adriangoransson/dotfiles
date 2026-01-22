@@ -1,0 +1,1 @@
+{"title":"esc = ctrl + u (dvorak g)","rules":[{"description":"Control + u (dvorak g) => Escape","manipulators":[{"from":{"key_code":"u","modifiers":{"mandatory":["control"],"optional":["caps_lock","option"]}},"to":[{"key_code":"escape"}],"type":"basic"}]}]}
