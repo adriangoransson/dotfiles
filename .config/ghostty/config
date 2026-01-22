@@ -4,7 +4,7 @@ copy-on-select = clipboard
 # Disable font ligatures.
 font-feature = -calt
 
-font-size = 14
+font-size = 16
 
 macos-titlebar-style = tabs
 
