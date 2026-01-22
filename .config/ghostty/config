@@ -4,6 +4,9 @@ copy-on-select = clipboard
 # Disable font ligatures.
 font-feature = -calt
 
+# 150 MB
+scrollback-limit = 150000000
+
 font-size = 16
 
 macos-titlebar-style = tabs
