@@ -15,3 +15,8 @@ theme = Dracula
 
 # https://github.com/ghostty-org/ghostty/issues/1392
 window-inherit-working-directory = false
+
+keybind = cmd+shift+l=goto_split:right
+keybind = cmd+shift+h=goto_split:left
+keybind = cmd+shift+j=goto_split:down
+keybind = cmd+shift+k=goto_split:up
