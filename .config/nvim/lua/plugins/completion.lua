@@ -62,7 +62,14 @@ return {
 			},
 
 			cmdline = {
-				enabled = false,
+				completion = {
+					menu = {
+						auto_show = function()
+							local t = vim.fn.getcmdtype()
+							return t == "/" or t == "?"
+						end,
+					},
+				},
 			},
 		},
 	},
