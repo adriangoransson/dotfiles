@@ -1,15 +1,15 @@
-local augroup = require("util").augroup
-
 return {
 	{
-		"cormacrelf/vim-colors-github",
+		"cormacrelf/dark-notify",
 		lazy = false,
 		dependencies = {
 			"levouh/tint.nvim",
+			"cormacrelf/vim-colors-github",
 			"folke/tokyonight.nvim",
 		},
 
 		config = function()
+			local dn = require("dark_notify")
 			local tint = require("tint")
 
 			local function set_dark_theme()
@@ -41,23 +41,23 @@ return {
 			end
 
 			local function set_system_theme()
-				local dark_mode = vim.fn.has("mac") == 1
-					and vim.fn.system("defaults read -g AppleInterfaceStyle") == "Dark\n"
-
-				if dark_mode then
-					set_dark_theme()
-				else
-					set_light_theme()
-				end
+				dn.update()
 			end
 
-			augroup("colorscheme_event_listener", function(au)
-				au("Signal", "SIGUSR1", set_system_theme)
-			end)
+			dn.run({
+				onchange = function(mode)
+					if mode == "light" then
+						set_light_theme()
+					else
+						set_dark_theme()
+					end
+				end,
+			})
 
 			vim.api.nvim_create_user_command("SetSystemTheme", set_system_theme, {})
 			vim.api.nvim_create_user_command("SetDarkTheme", set_dark_theme, {})
 			vim.api.nvim_create_user_command("SetLightTheme", set_light_theme, {})
+
 			vim.api.nvim_create_user_command("TintToggle", tint.toggle, {})
 			vim.api.nvim_create_user_command("TintEnable", tint.enable, {})
 			vim.api.nvim_create_user_command("TintDisable", tint.disable, {})
