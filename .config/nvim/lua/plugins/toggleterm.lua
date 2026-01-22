@@ -12,6 +12,7 @@ return {
 						vim.cmd("startinsert!")
 					end)
 				end,
+				shell = "fish",
 			})
 
 			local function create_term(direction)
