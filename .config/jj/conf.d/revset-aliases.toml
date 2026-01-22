@@ -1,0 +1,4 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[revset-aliases]
+"log_diff(x)" = "fork_point(x| remote_bookmarks(substring:x))::"

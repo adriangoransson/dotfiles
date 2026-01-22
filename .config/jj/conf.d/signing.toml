@@ -1,0 +1,5 @@
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJa8tTjau+0vHfgsNOAFTjbMwq7kwxvhZTKyq/cqwzGb adrian@opti"
+backends.ssh.allowed-signers = "~/.ssh/authorized_signatures"

@@ -1,0 +1,7 @@
+[fix.tools.gofumpt]
+command = ["/usr/bin/env", "gofumpt", "-extra"]
+patterns = ["'**/*.go'"]
+
+[fix.tools.goimports]
+command = ["/usr/bin/env", "goimports"]
+patterns = ["'**/*.go'"]

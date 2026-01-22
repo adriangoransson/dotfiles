@@ -1,0 +1,48 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Adrian Göransson"
+# email = set per project
+
+[ui]
+default-command = ["status"]
+bookmark-list-sort-keys = ["committer-date"]
+
+[aliases]
+l = ["log"]
+n = ["new"]
+sh = ["show"]
+df = ["diff"]
+rb = ["rebase"]
+sht = ["show", "--tool", "difft"]
+dft = ["diff", "--tool", "difft"]
+
+g = ["git"]
+gf = ["git", "fetch"]
+gp = ["git", "push"]
+
+[git]
+private-commits = "description(glob:'private:*')"
+
+[remotes.origin]
+auto-track-bookmarks = "*"
+
+[templates]
+# Show a preview of the commit (similar to git commit --verbose).
+# Width: 72-len(prefix) = 68.
+draft_commit_description = '''
+concat(
+  coalesce(description, default_commit_description, "\n"),
+  "\n",
+  "JJ: Change ID: " ++ format_short_change_id(change_id) ++ "\n",
+  if(
+    empty, 
+    "JJ: (empty)", 
+    concat(
+        indent("JJ: ", diff.stat(68)),
+        "\nJJ: ignore-rest\n",
+        diff.git(),
+	),
+  ),
+)
+'''
