@@ -1,0 +1,29 @@
+# From https://github.com/mbadolato/iTerm2-Color-Schemes
+
+# Original 0 was way too dark, blending in with the background.
+palette = 0=#b8b9c5
+
+# Commit 4762ad5bd6d3906e28babdc2bda8a967d63a63be.
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#bd93f9
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#f8f8f2
+palette = 8=#6272a4
+palette = 9=#ff6e6e
+palette = 10=#69ff94
+palette = 11=#ffffa5
+palette = 12=#d6acff
+palette = 13=#ff92df
+palette = 14=#a4ffff
+palette = 15=#ffffff
+background = #282a36
+foreground = #f8f8f2
+selection-background = #44475a
+selection-foreground = #ffffff
+
+# Commit 9e0ff9ecc800cc1247bc74211f215a158e43036a.
+cursor-color = #bbbbbb
+cursor-text = #ffffff
